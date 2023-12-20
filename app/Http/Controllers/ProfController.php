@@ -13,6 +13,7 @@ class ProfController extends Controller
     public function index()
     {
         //
+        $profs = Prof::all();
     }
 
     /**
@@ -21,6 +22,7 @@ class ProfController extends Controller
     public function create()
     {
         //
+        return view('prof.create');
     }
 
     /**
@@ -29,6 +31,11 @@ class ProfController extends Controller
     public function store(Request $request)
     {
         //
+        $prof = new Prof();
+        $prof->nom = $request->nom;
+        $prof->prenom = $request->prenom;
+        $prof->save();
+        return redirect()->route('prof.index');
     }
 
     /**
@@ -37,6 +44,7 @@ class ProfController extends Controller
     public function show(Prof $prof)
     {
         //
+        return view('prof.show', compact('prof'));
     }
 
     /**
@@ -45,6 +53,7 @@ class ProfController extends Controller
     public function edit(Prof $prof)
     {
         //
+        return view('prof.edit', compact('prof'));
     }
 
     /**
@@ -53,6 +62,10 @@ class ProfController extends Controller
     public function update(Request $request, Prof $prof)
     {
         //
+        $prof->nom = $request->nom;
+        $prof->prenom = $request->prenom;
+        $prof->save();
+        return redirect()->route('prof.index');
     }
 
     /**
@@ -61,5 +74,7 @@ class ProfController extends Controller
     public function destroy(Prof $prof)
     {
         //
+        $prof->delete();
+        return redirect()->route('prof.index');
     }
 }

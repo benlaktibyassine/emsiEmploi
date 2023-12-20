@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Local;
+use App\Models\Disponibilite;
 use Illuminate\Http\Request;
 
-class LocalController extends Controller
+class DisponibiliteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,7 @@ class LocalController extends Controller
     public function index()
     {
         //
-        $locales = Local::all();
-        return view('locales.index', compact('locales'));
+        
     }
 
     /**
@@ -23,7 +22,6 @@ class LocalController extends Controller
     public function create()
     {
         //
-        return view('locales.create');
     }
 
     /**
@@ -32,45 +30,37 @@ class LocalController extends Controller
     public function store(Request $request)
     {
         //
-        Local::create($request->all());
-        return redirect()->route('locales.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Local $local)
+    public function show(Disponibilite $disponibilite)
     {
         //
-        return view('locales.show', compact('local'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Local $local)
+    public function edit(Disponibilite $disponibilite)
     {
         //
-        return view('locales.edit', compact('local'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Local $local)
+    public function update(Request $request, Disponibilite $disponibilite)
     {
         //
-        $local->update($request->all());
-        return redirect()->route('locales.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Local $local)
+    public function destroy(Disponibilite $disponibilite)
     {
         //
-        $local->delete();
-        return redirect()->route('locales.index');
     }
 }

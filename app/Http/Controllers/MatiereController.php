@@ -13,6 +13,7 @@ class MatiereController extends Controller
     public function index()
     {
         //
+        $matieres = Matiere::all();
     }
 
     /**
@@ -21,6 +22,7 @@ class MatiereController extends Controller
     public function create()
     {
         //
+        return view('matiere.create');
     }
 
     /**
@@ -29,6 +31,10 @@ class MatiereController extends Controller
     public function store(Request $request)
     {
         //
+        $matiere = new Matiere();
+        $matiere->libelle = $request->libelle;
+        $matiere->save();
+        return redirect()->route('matiere.index');
     }
 
     /**
@@ -37,6 +43,7 @@ class MatiereController extends Controller
     public function show(Matiere $matiere)
     {
         //
+        return view('matiere.show', compact('matiere'));
     }
 
     /**
@@ -45,6 +52,7 @@ class MatiereController extends Controller
     public function edit(Matiere $matiere)
     {
         //
+        return view('matiere.edit', compact('matiere'));
     }
 
     /**
@@ -53,6 +61,9 @@ class MatiereController extends Controller
     public function update(Request $request, Matiere $matiere)
     {
         //
+        $matiere->libelle = $request->libelle;
+        $matiere->save();
+        return redirect()->route('matiere.index');
     }
 
     /**
@@ -61,5 +72,7 @@ class MatiereController extends Controller
     public function destroy(Matiere $matiere)
     {
         //
+        $matiere->delete();
+        return redirect()->route('matiere.index');
     }
 }
