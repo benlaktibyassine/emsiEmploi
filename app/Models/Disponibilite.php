@@ -14,4 +14,5 @@ class Disponibilite extends Model
         'heure_debut',
         'heure_fin',
     ];
+    
 }

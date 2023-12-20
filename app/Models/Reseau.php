@@ -12,4 +12,7 @@ class Reseau extends Model
         "id_reseau",
         "nom_reseau"
     ];
+    public function profs(){
+        return $this->hasMany(Prof::class);
+    }
 }

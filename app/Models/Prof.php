@@ -12,4 +12,7 @@ class Prof extends Model
         "id_prof",
         "nom_prof"
     ];
+    public function responsable(){
+        return $this->hasMany(Responsable::class);
+    }
 }

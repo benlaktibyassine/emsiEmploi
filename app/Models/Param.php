@@ -12,4 +12,5 @@ class Param extends Model
         "id_param",
         "nom_param"
     ];
+    
 }
