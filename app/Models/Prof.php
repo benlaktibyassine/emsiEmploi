@@ -8,11 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Prof extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $fillable = [
         "id_prof",
-        "nom_prof"
+        "nom",
+        "prenom",
+        "email",
+        "password",
+        "tel",
+
     ];
-    public function responsable(){
-        return $this->hasMany(Responsable::class);
-    }
+    
 }
