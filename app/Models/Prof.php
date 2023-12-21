@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Prof extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_prof';
     protected $fillable = [
         "id_prof",
         "nom",
@@ -17,5 +18,5 @@ class Prof extends Model
         "tel",
 
     ];
-    
+
 }

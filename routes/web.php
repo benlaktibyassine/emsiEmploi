@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,8 +18,52 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('locales', 'LocalController');
-Route::resource('salles', 'SalleController');
-Route::resource('users', 'UserController');
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
+Route::resource('locales', LocalController::class)->names(
+    [
+        "index" => "local.index",
+        "create" => "local.create",
+        "store" => "local.store",
+        "show" => "local.show",
+        "edit" => "local.edit",
+        "update" => "local.update",
+        "destroy" => "local.destroy",
+    ]
+);
+Route::resource('salles', SalleController::class)->names(
+    [
+        "index" => "salle.index",
+        "create" => "salle.create",
+        "store" => "salle.store",
+        "show" => "salle.show",
+        "edit" => "salle.edit",
+        "update" => "salle.update",
+        "destroy" => "salle.destroy",
+    ]
+);
+
+Route::resource('profs', ProfController::class)->names([
+    "index" => "profindex",
+    "create" => "profcreate",
+    "store" => "profstore",
+    "show" => "profshow",
+    "edit" => "profedit",
+    "update" => "profupdate",
+    "destroy" => "profdestroy",
+]);
+
+Route::resource('groupes', GroupeController::class)->names(
+    [
+        "index" => "groupe.index",
+        "create" => "groupe.create",
+        "store" => "groupe.store",
+        "show" => "groupe.show",
+        "edit" => "groupe.edit",
+        "update" => "groupe.update",
+        "destroy" => "groupe.destroy",
+    ]
+);
+
 

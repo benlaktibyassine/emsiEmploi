@@ -11,10 +11,11 @@ class ProfController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
-        $profs = Prof::all();
-    }
+{
+    $profs = Prof::all();
+    return view('prof.index', compact('profs'));
+}
+
 
     /**
      * Show the form for creating a new resource.
