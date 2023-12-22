@@ -1,0 +1,400 @@
+/* ------------------------------------
+Start Portfolio Details Area
+----------------------------------------*/ 
+.single-portfolio-details-content {
+    padding-right: 20px;
+    .portfolio-img {
+        margin-bottom: 39px;
+        overflow: hidden;
+        img {
+            transition: var(--transition);
+        }
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+    h3 {
+        font-size: 32px; 
+        margin-bottom: 15px;
+    }
+    p {
+        line-height: 26px;
+    }
+    .single-portfolio-card2 {
+        background-color: #F7F7F7;
+        padding: 25px;
+        margin-top: 38px;
+        margin-bottom: 40px;
+        h3 {
+            font-size: 18px;
+            margin-bottom: 0;
+        }
+        .services-icon {
+            width: 50px;
+            height: 50px;
+            line-height: 48px;
+            text-align: center;
+            background-color: var(--whiteColor);
+            display: inline-block;
+            border-radius: 100%;
+            margin-right: 15px;
+            img {
+                max-width: 30px;
+            }
+        }
+    }
+    .portfolio-img-2 {
+        margin-bottom: 27px;
+        overflow: hidden;
+        img {
+            transition: var(--transition);
+        }
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+    .portfolio-details-list {
+        margin-top: 18px;
+        margin-bottom: 40px;
+        ul {
+            padding-left: 0;
+            padding-right: 0;
+            margin: 0;
+            li {
+                list-style-type: none;
+                font-weight: 400;
+                padding-left: 28px;
+                position: relative;
+                margin-bottom: 10px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
+                img {
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+            }
+        }
+    }
+    h4 {
+        font-size: 24px;
+        margin-bottom: 18px;
+    }
+}
+.portfolio-card-item {
+    margin-top: 35px;
+    h4 {
+        font-size: 24px;
+        margin-bottom: 25px;
+    }
+}
+.portfolio-details-card {
+    background-color: #F7F7F7;
+    padding: 36px 30px;
+    margin-bottom: 30px;
+    h2 {
+        font-size: 20px;
+        padding-bottom: 33px;
+        border-bottom: 1px solid #E7E7E7;
+        line-height: 10px;
+        margin-bottom: 20px;
+    }
+    .portfolio-client {
+        padding-bottom: 20px;
+        margin-bottom: 17px;
+        border-bottom: 1px solid #E7E7E7;
+        &:last-child {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            border-bottom: none;
+        }
+        span {
+            font-weight: 500;
+            color: var(--headingColor);
+            line-height: 10px;
+        }
+        p {
+            line-height: 10px;
+        }
+    }
+}
+.help-contact-card {
+    background-color: #2CB2B3;
+    padding: 30px;
+    .help-img {
+        margin-bottom: 24px;
+        overflow: hidden;
+        img {
+            transition: var(--transition);
+        }
+        &:hover {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--whiteColor);
+        margin-bottom: 12px;
+    }
+    p {
+        color: var(--whiteColor);
+    }
+    .call-experts {
+        padding-left: 80px;
+        position: relative;
+        margin-top: 30px;
+        .phone-call {
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            border-radius: 100%;
+            text-align: center;
+            display: inline-block;
+            background-color: var(--whiteColor);
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+            img {
+                transition: var(--transition);
+            }
+            &:hover {
+                background-color: var(--mainColor);
+                img {
+                    filter: brightness(10);
+                }
+            }
+        }
+        span {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 5px;
+            color: var(--whiteColor);
+        }
+        a {
+            font-size: 20px;
+            font-weight: 500;
+            transition: var(--transition);
+            color: var(--whiteColor);
+            &:hover {
+                color: var(--mainColor);
+            }
+        }
+    }
+}
+
+/* ---------------------------------------
+Start portfolio details Responsive Css 
+-----------------------------------------*/
+@media only screen and (max-width: 767px) {
+    .portfolio-details-card {
+        padding: 20px;
+        margin-top: 30px;
+        h2 {
+            padding-bottom: 15px;
+        }
+    }
+    .single-portfolio-details-content {
+        padding-right: 0;
+        .portfolio-details-list {
+            margin-top: 10px;
+            margin-bottom: 13px;
+        }
+        h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+        .portfolio-img {
+            margin-bottom: 20px;
+        }
+        .portfolio-img-2 {
+            margin-bottom: 0;
+            margin-top: 15px;
+            &:last-child {
+                margin-bottom: 10px;
+            }
+        }
+        .single-portfolio-card2 {
+            padding: 15px;
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+    }
+
+}
+
+@media only screen and (min-width: 500px) and (max-width: 767px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .portfolio-details-card {
+        padding: 20px;
+        margin-top: 30px;
+        h2 {
+            padding-bottom: 15px;
+        }
+    }
+    .single-portfolio-details-content {
+        padding-right: 0;
+        .portfolio-details-list {
+            margin-bottom: 28px;
+        }
+        h4 {
+            font-size: 20px;
+        }
+        h3 {
+            font-size: 26px;
+        }
+        .portfolio-img {
+            margin-bottom: 20px;
+        }
+        .single-portfolio-card2 {
+            h3 {
+                font-size: 15px;
+            }
+        }
+        .single-portfolio-card2 {
+            padding: 15px;
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px)  {
+    .portfolio-details-card {
+        padding: 20px;
+        h2 {
+            padding-bottom: 15px;
+        }
+    }
+    .single-portfolio-details-content {
+        padding-right: 0;
+        .portfolio-details-list {
+            margin-bottom: 28px;
+            ul {
+                li {
+                    font-size: 14px;
+                }
+            }
+        }
+        h4 {
+            font-size: 20px;
+        }
+        h3 {
+            font-size: 26px;
+        }
+        .portfolio-img {
+            margin-bottom: 20px;
+        }
+        .single-portfolio-card2 {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            h3 {
+                font-size: 13px;
+            }
+            .services-icon {
+                width: 40px;
+                height: 40px;
+                line-height: 35px;
+                margin-right: 10px;
+                img {
+                    max-width: 18px;
+                }
+            }
+        }
+        .single-portfolio-card2 {
+            padding: 15px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px)  {
+    .single-portfolio-details-content {
+        padding-right: 0;
+        .single-portfolio-card2 {
+            margin-top: 20px;
+            margin-bottom: 30px;
+
+            h3 {
+                font-size: 16px;
+            }
+            .services-icon {
+                width: 40px;
+                height: 40px;
+                line-height: 35px;
+                margin-right: 10px;
+                img {
+                    max-width: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 1550px) {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------
+Start Portfolio Details Responsive Css 
+-----------------------------------------*/ 
+@media only screen and (max-width: 767px) {
+
+}
+
+@media only screen and (min-width: 500px) and (max-width: 767px) {
+
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px)  {
+
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px)  {
+
+}
+
+@media only screen and (min-width: 1550px) {
+    
+}

@@ -1,0 +1,387 @@
+/* ------------------------------------
+Start Portfolio Details Area
+----------------------------------------*/
+.single-portfolio-details-content {
+  padding-right: 20px;
+}
+
+.single-portfolio-details-content .portfolio-img {
+  margin-bottom: 39px;
+  overflow: hidden;
+}
+
+.single-portfolio-details-content .portfolio-img img {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.single-portfolio-details-content .portfolio-img:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.single-portfolio-details-content h3 {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.single-portfolio-details-content p {
+  line-height: 26px;
+}
+
+.single-portfolio-details-content .single-portfolio-card2 {
+  background-color: #F7F7F7;
+  padding: 25px;
+  margin-top: 38px;
+  margin-bottom: 40px;
+}
+
+.single-portfolio-details-content .single-portfolio-card2 h3 {
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.single-portfolio-details-content .single-portfolio-card2 .services-icon {
+  width: 50px;
+  height: 50px;
+  line-height: 48px;
+  text-align: center;
+  background-color: var(--whiteColor);
+  display: inline-block;
+  border-radius: 100%;
+  margin-right: 15px;
+}
+
+.single-portfolio-details-content .single-portfolio-card2 .services-icon img {
+  max-width: 30px;
+}
+
+.single-portfolio-details-content .portfolio-img-2 {
+  margin-bottom: 27px;
+  overflow: hidden;
+}
+
+.single-portfolio-details-content .portfolio-img-2 img {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.single-portfolio-details-content .portfolio-img-2:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.single-portfolio-details-content .portfolio-details-list {
+  margin-top: 18px;
+  margin-bottom: 40px;
+}
+
+.single-portfolio-details-content .portfolio-details-list ul {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+}
+
+.single-portfolio-details-content .portfolio-details-list ul li {
+  list-style-type: none;
+  font-weight: 400;
+  padding-left: 28px;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.single-portfolio-details-content .portfolio-details-list ul li:last-child {
+  margin-bottom: 0;
+}
+
+.single-portfolio-details-content .portfolio-details-list ul li img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.single-portfolio-details-content h4 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.portfolio-card-item {
+  margin-top: 35px;
+}
+
+.portfolio-card-item h4 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.portfolio-details-card {
+  background-color: #F7F7F7;
+  padding: 36px 30px;
+  margin-bottom: 30px;
+}
+
+.portfolio-details-card h2 {
+  font-size: 20px;
+  padding-bottom: 33px;
+  border-bottom: 1px solid #E7E7E7;
+  line-height: 10px;
+  margin-bottom: 20px;
+}
+
+.portfolio-details-card .portfolio-client {
+  padding-bottom: 20px;
+  margin-bottom: 17px;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+.portfolio-details-card .portfolio-client:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.portfolio-details-card .portfolio-client span {
+  font-weight: 500;
+  color: var(--headingColor);
+  line-height: 10px;
+}
+
+.portfolio-details-card .portfolio-client p {
+  line-height: 10px;
+}
+
+.help-contact-card {
+  background-color: #2CB2B3;
+  padding: 30px;
+}
+
+.help-contact-card .help-img {
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.help-contact-card .help-img img {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.help-contact-card .help-img:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.help-contact-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--whiteColor);
+  margin-bottom: 12px;
+}
+
+.help-contact-card p {
+  color: var(--whiteColor);
+}
+
+.help-contact-card .call-experts {
+  padding-left: 80px;
+  position: relative;
+  margin-top: 30px;
+}
+
+.help-contact-card .call-experts .phone-call {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 100%;
+  text-align: center;
+  display: inline-block;
+  background-color: var(--whiteColor);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.help-contact-card .call-experts .phone-call img {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.help-contact-card .call-experts .phone-call:hover {
+  background-color: var(--mainColor);
+}
+
+.help-contact-card .call-experts .phone-call:hover img {
+  -webkit-filter: brightness(10);
+          filter: brightness(10);
+}
+
+.help-contact-card .call-experts span {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: var(--whiteColor);
+}
+
+.help-contact-card .call-experts a {
+  font-size: 20px;
+  font-weight: 500;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+  color: var(--whiteColor);
+}
+
+.help-contact-card .call-experts a:hover {
+  color: var(--mainColor);
+}
+
+/* ---------------------------------------
+Start portfolio details Responsive Css 
+-----------------------------------------*/
+@media only screen and (max-width: 767px) {
+  .portfolio-details-card {
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .portfolio-details-card h2 {
+    padding-bottom: 15px;
+  }
+  .single-portfolio-details-content {
+    padding-right: 0;
+  }
+  .single-portfolio-details-content .portfolio-details-list {
+    margin-top: 10px;
+    margin-bottom: 13px;
+  }
+  .single-portfolio-details-content h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .single-portfolio-details-content h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+  .single-portfolio-details-content .portfolio-img {
+    margin-bottom: 20px;
+  }
+  .single-portfolio-details-content .portfolio-img-2 {
+    margin-bottom: 0;
+    margin-top: 15px;
+  }
+  .single-portfolio-details-content .portfolio-img-2:last-child {
+    margin-bottom: 10px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 {
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .portfolio-details-card {
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .portfolio-details-card h2 {
+    padding-bottom: 15px;
+  }
+  .single-portfolio-details-content {
+    padding-right: 0;
+  }
+  .single-portfolio-details-content .portfolio-details-list {
+    margin-bottom: 28px;
+  }
+  .single-portfolio-details-content h4 {
+    font-size: 20px;
+  }
+  .single-portfolio-details-content h3 {
+    font-size: 26px;
+  }
+  .single-portfolio-details-content .portfolio-img {
+    margin-bottom: 20px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 h3 {
+    font-size: 15px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 {
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .portfolio-details-card {
+    padding: 20px;
+  }
+  .portfolio-details-card h2 {
+    padding-bottom: 15px;
+  }
+  .single-portfolio-details-content {
+    padding-right: 0;
+  }
+  .single-portfolio-details-content .portfolio-details-list {
+    margin-bottom: 28px;
+  }
+  .single-portfolio-details-content .portfolio-details-list ul li {
+    font-size: 14px;
+  }
+  .single-portfolio-details-content h4 {
+    font-size: 20px;
+  }
+  .single-portfolio-details-content h3 {
+    font-size: 26px;
+  }
+  .single-portfolio-details-content .portfolio-img {
+    margin-bottom: 20px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 h3 {
+    font-size: 13px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 .services-icon {
+    width: 40px;
+    height: 40px;
+    line-height: 35px;
+    margin-right: 10px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 .services-icon img {
+    max-width: 18px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 {
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1399px) {
+  .single-portfolio-details-content {
+    padding-right: 0;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 h3 {
+    font-size: 16px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 .services-icon {
+    width: 40px;
+    height: 40px;
+    line-height: 35px;
+    margin-right: 10px;
+  }
+  .single-portfolio-details-content .single-portfolio-card2 .services-icon img {
+    max-width: 18px;
+  }
+}
+
+/* ---------------------------------------
+Start Portfolio Details Responsive Css 
+-----------------------------------------*/
+/*# sourceMappingURL=portfolio-details.css.map */

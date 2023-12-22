@@ -1,0 +1,239 @@
+/* -------------------------------------
+start Services Details area
+---------------------------------------*/
+.download-app {
+  background-color: #F7F7F7;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.download-app h2 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.download-app .default-btn {
+  background-image: none;
+  background-color: var(--whiteColor);
+  color: var(--headingColor);
+  font-weight: 500;
+  font-size: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 100%;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.download-app .default-btn img {
+  margin-right: 15px;
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.download-app .default-btn:last-child {
+  margin-bottom: 0;
+}
+
+.download-app .default-btn:hover {
+  background-color: var(--oppositeColor);
+  color: var(--whiteColor);
+}
+
+.download-app .default-btn:hover img {
+  -webkit-filter: brightness(10);
+          filter: brightness(10);
+}
+
+.single-services-details-content {
+  padding-right: 20px;
+}
+
+.single-services-details-content .services-details-img {
+  overflow: hidden;
+  margin-bottom: 36px;
+}
+
+.single-services-details-content .services-details-img img {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.single-services-details-content .services-details-img:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.single-services-details-content .services-text {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.single-services-details-content p {
+  margin-bottom: 10px;
+}
+
+.single-services-details-content .blog-details-list {
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0;
+  margin-top: 23px;
+  margin-bottom: 40px;
+}
+
+.single-services-details-content .blog-details-list li {
+  list-style-type: none;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.single-services-details-content .blog-details-list li img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.single-services-details-content .blog-details-list li:last-child {
+  margin-bottom: 0;
+}
+
+.single-services-details-content h3 {
+  font-size: 24px;
+  margin-bottom: 13px;
+}
+
+.single-services-details-content h4 {
+  font-size: 24px;
+  margin-bottom: 25px;
+}
+
+.single-services-details-content .services-details-img2 {
+  overflow: hidden;
+  margin-bottom: 48px;
+  margin-top: 10px;
+}
+
+.single-services-details-content .services-details-img2 img {
+  -webkit-transition: var(--transition);
+  transition: var(--transition);
+}
+
+.single-services-details-content .services-details-img2:hover img {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+/* ---------------------------------------
+Start Services Details Responsive Css 
+-----------------------------------------*/
+@media only screen and (max-width: 767px) {
+  .single-services-details-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  .single-services-details-content .services-details-img {
+    margin-bottom: 15px;
+  }
+  .single-services-details-content .services-text {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .single-services-details-content .blog-details-list {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  .single-services-details-content h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .single-services-details-content .services-details-img2 {
+    margin-bottom: 15px;
+    margin-top: 0;
+  }
+  .single-services-details-content h4 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .download-app {
+    padding: 15px;
+  }
+  .download-app .default-btn {
+    padding: 15px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .single-services-details-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  .single-services-details-content .services-details-img {
+    margin-bottom: 20px;
+  }
+  .single-services-details-content .services-text {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .single-services-details-content .blog-details-list {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .single-services-details-content h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .single-services-details-content .services-details-img2 {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .single-services-details-content h4 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .single-services-details-content {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+  .single-services-details-content .services-details-img {
+    margin-bottom: 20px;
+  }
+  .single-services-details-content .services-text {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .single-services-details-content .blog-details-list {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .single-services-details-content h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .single-services-details-content .services-details-img2 {
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  .single-services-details-content h4 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+  .download-app {
+    padding: 15px;
+  }
+  .download-app .default-btn {
+    padding: 15px;
+  }
+}
+/*# sourceMappingURL=services-details.css.map */

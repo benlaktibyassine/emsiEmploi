@@ -15,8 +15,7 @@ class Prof extends Model
         "prenom",
         "email",
         "password",
-        "tel",
-
+        "tel"
     ];
 
 }
