@@ -31,13 +31,17 @@ class ProfController extends Controller
      */
     public function store(Request $request)
     {
-        //
         $prof = new Prof();
         $prof->nom = $request->nom;
         $prof->prenom = $request->prenom;
+        $prof->email = $request->email;
+        $prof->tel = $request->tel;
+        $prof->password = bcrypt($request->password); // Hash the password
         $prof->save();
-        return redirect()->route('prof.index');
+
+        return redirect()->route('profindex')->with('success', 'Prof saved successfully!');
     }
+
 
     /**
      * Display the specified resource.
@@ -65,8 +69,11 @@ class ProfController extends Controller
         //
         $prof->nom = $request->nom;
         $prof->prenom = $request->prenom;
+        $prof->email = $request->email;
+        $prof->password =bcrypt($request->prenom);
+        $prof->tel =$request->tel;
         $prof->save();
-        return redirect()->route('prof.index');
+        return redirect()->route('profindex');
     }
 
     /**
@@ -76,6 +83,6 @@ class ProfController extends Controller
     {
         //
         $prof->delete();
-        return redirect()->route('prof.index');
+        return redirect()->route('profindex');
     }
 }
