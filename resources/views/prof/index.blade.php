@@ -1,4 +1,5 @@
 @include('component.head')
+@include('component.header')
 
 <body>
     <div class="container mt-5">
@@ -40,6 +41,6 @@
         </table>
     </div>
 
-    < </body>
+    </body>
 
         </html>
