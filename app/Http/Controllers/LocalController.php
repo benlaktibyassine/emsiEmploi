@@ -31,7 +31,10 @@ class LocalController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom_locale' => 'required|string|max:255',
+            // Ajoutez d'autres règles de validation au besoin
+        ]);
         Local::create($request->all());
         return redirect()->route('locales.index');
     }

@@ -12,7 +12,8 @@ class EtageController extends Controller
      */
     public function index()
     {
-        //
+        $etages = Etage::all();
+        return view('etages.index', compact('etages'));
     }
 
     /**
@@ -20,7 +21,7 @@ class EtageController extends Controller
      */
     public function create()
     {
-        //
+        return view('etages.create');
     }
 
     /**
@@ -28,7 +29,14 @@ class EtageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nom_etage' => 'required|string|max:255',
+            'id_local' => 'required|exists:locales,id_locale',
+            
+        ]);
+
+        Etage::create($request->all());
+        return redirect()->route('etages.index');
     }
 
     /**
@@ -36,7 +44,7 @@ class EtageController extends Controller
      */
     public function show(Etage $etage)
     {
-        //
+        return view('etages.show', compact('etage'));
     }
 
     /**
@@ -44,7 +52,7 @@ class EtageController extends Controller
      */
     public function edit(Etage $etage)
     {
-        //
+        return view('etages.edit', compact('etage'));
     }
 
     /**
@@ -52,7 +60,14 @@ class EtageController extends Controller
      */
     public function update(Request $request, Etage $etage)
     {
-        //
+        $request->validate([
+            'nom_etage' => 'required|string|max:255',
+            'id_local' => 'required|exists:locales,id_locale',
+           
+        ]);
+
+        $etage->update($request->all());
+        return redirect()->route('etages.index');
     }
 
     /**
@@ -60,6 +75,7 @@ class EtageController extends Controller
      */
     public function destroy(Etage $etage)
     {
-        //
+        $etage->delete();
+        return redirect()->route('etages.index');
     }
 }

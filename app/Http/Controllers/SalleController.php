@@ -12,7 +12,8 @@ class SalleController extends Controller
      */
     public function index()
     {
-        //
+        $salles = Salle::all();
+        return view('salles.index', compact('salles'));
     }
 
     /**
@@ -20,7 +21,10 @@ class SalleController extends Controller
      */
     public function create()
     {
-        //
+        $types = Salle::distinct()->pluck('id_type');
+        $etages = Etage::all();
+
+        return view('salles.create', compact('types', 'etages'));
     }
 
     /**
@@ -28,7 +32,15 @@ class SalleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'code_salle' => 'required|string|max:255',
+            'id_etage' => 'required|exists:etages,id_etage',
+            'id_type' => 'required|exists:types,id_type',
+            // Ajoutez d'autres règles de validation au besoin
+        ]);
+
+        Salle::create($request->all());
+        return redirect()->route('salles.index');
     }
 
     /**
@@ -36,7 +48,7 @@ class SalleController extends Controller
      */
     public function show(Salle $salle)
     {
-        //
+        return view('salles.show', compact('salle'));
     }
 
     /**
@@ -44,7 +56,10 @@ class SalleController extends Controller
      */
     public function edit(Salle $salle)
     {
-        //
+        $types = Salle::distinct()->pluck('id_type');
+        $etages = Etage::all();
+
+        return view('salles.edit', compact('salle', 'types', 'etages'));
     }
 
     /**
@@ -52,7 +67,15 @@ class SalleController extends Controller
      */
     public function update(Request $request, Salle $salle)
     {
-        //
+        $request->validate([
+            'code_salle' => 'required|string|max:255|unique:salles,code_salle',
+            'id_etage' => 'required|exists:etages,id_etage',
+            'id_type' => 'required|exists:types,id_type',
+            
+        ]);
+
+        $salle->update($request->all());
+        return redirect()->route('salles.index');
     }
 
     /**
@@ -60,6 +83,7 @@ class SalleController extends Controller
      */
     public function destroy(Salle $salle)
     {
-        //
+        $salle->delete();
+        return redirect()->route('salles.index');
     }
 }
