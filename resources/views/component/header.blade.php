@@ -72,7 +72,7 @@
                   <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                       <ul class="navbar-nav ms-auto">
                           <li class="nav-item">
-                              <a href="#" class="nav-link active">
+                              <a href="{{route('home') }}" class="nav-link active">
                                   Home
 
                               </a>
@@ -110,7 +110,7 @@
                               </button>
                           </div>
                           <div class="option-item">
-                              <a href="contact.html" class="default-btn">Get A Quote</a>
+                              <a href="{{ route('login') }}" class="default-btn">Login</a>
                           </div>
                       </div>
                   </div>

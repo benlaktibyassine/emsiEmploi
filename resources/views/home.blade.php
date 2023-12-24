@@ -887,5 +887,6 @@
 
         <!-- Start Footer Area -->
     @include('component.foot')
+    @include("component.jslinks")
     </body>
 </html>

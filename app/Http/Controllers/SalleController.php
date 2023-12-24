@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Etage;
 use App\Models\Salle;
 use Illuminate\Http\Request;
 
@@ -71,7 +72,7 @@ class SalleController extends Controller
             'code_salle' => 'required|string|max:255|unique:salles,code_salle',
             'id_etage' => 'required|exists:etages,id_etage',
             'id_type' => 'required|exists:types,id_type',
-            
+
         ]);
 
         $salle->update($request->all());

@@ -63,6 +63,9 @@ Route::resource('groupes', GroupeController::class)->names(
         "destroy" => "groupe.destroy",
     ]
 );
+Route::get('/login', function () {
+    return view('login');
+})->name('login');
 
 Route::fallback(function () {
     return view('home'); // You can customize this to your needs

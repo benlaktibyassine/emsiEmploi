@@ -31,6 +31,14 @@ class ProfController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|unique:profs|max:255',
+            'tel' => 'required|string|max:20',
+            'password' => 'required|string|min:8',
+        ]);
+
         $prof = new Prof();
         $prof->nom = $request->nom;
         $prof->prenom = $request->prenom;
@@ -66,15 +74,24 @@ class ProfController extends Controller
      */
     public function update(Request $request, Prof $prof)
     {
-        //
+        $request->validate([
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|unique:profs,email,' . $prof->id,
+            'tel' => 'required|string|max:20',
+            'password' => 'required|string|min:8',
+        ]);
+
         $prof->nom = $request->nom;
         $prof->prenom = $request->prenom;
         $prof->email = $request->email;
-        $prof->password =bcrypt($request->prenom);
-        $prof->tel =$request->tel;
+        $prof->tel = $request->tel;
+        $prof->password = bcrypt($request->password); // Hash the password
         $prof->save();
-        return redirect()->route('profindex');
+
+        return redirect()->route('profindex')->with('success', 'Informations updated successfully');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -83,6 +100,6 @@ class ProfController extends Controller
     {
         //
         $prof->delete();
-        return redirect()->route('profindex');
+        return redirect()->route('profindex')->with("success","Prof is deleted");
     }
 }

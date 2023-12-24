@@ -6,7 +6,7 @@
             <h1>Register</h1>
             <ul>
                 <li>
-                    <a href="{{ route("profindex") }}">Professors</a>
+                    <a href="{{ route('profindex') }}">Professors</a>
                 </li>
                 <li>Register</li>
             </ul>
@@ -26,29 +26,48 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <input type="text" class="form-control"name="nom" placeholder="First Name">
+                            <input type="text" class="form-control"name="nom" placeholder="First Name"
+                                value="{{ old('nom') }}">
+                            @error('nom')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <input type="text" class="form-control"name="prenom" placeholder="Last Name">
+                            <input type="text" class="form-control"name="prenom" placeholder="Last Name"
+                                value="{{ old('prenom') }}">
+                            @error('prenom')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <input type="text" class="form-control"name="tel" placeholder="Phone Number">
+                            <input type="text" class="form-control"name="tel" placeholder="Phone Number"
+                                value="{{ old('tel') }}">
+                            @error('tel')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
 
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Email" name="email">
+                            <input type="email" class="form-control" placeholder="Email" name="email"
+                                value="{{ old('email') }}">
+                            @error('email')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-lg-12">
                         <div class="form-group">
                             <input type="password" class="form-control" placeholder="Password" name="password">
+                            @error('password')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-lg-12">
