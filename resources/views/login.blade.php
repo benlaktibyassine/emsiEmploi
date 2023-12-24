@@ -10,34 +10,25 @@
             <div class="col-lg-6 col-md-6">
                 <div class="my-account-form">
                     <h2>Log In To Your Account</h2>
-                    <form>
+                    <form method="POST" action="{{ route('proflogin') }}">
+                        @csrf
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Email">
+                                    <input type="text" class="form-control" name="email" required
+                                        placeholder="Email">
+                                    @error('email')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input type="password" class="form-control" placeholder="Password">
+                                    <input type="password" class="form-control" name="password" required
+                                        placeholder="Password">
                                 </div>
                             </div>
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefault">
-                                        <label class="form-check-label" for="flexCheckDefault">
-                                            Keep me logged in
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="account-text">
-                                    <p><a href="forgot-password.html">Forgot your password?</a></p>
-                                </div>
-                            </div>
+
                             <div class="col-lg-12">
                                 <div class="my-account-btn">
                                     <button type="submit" class="default-btn">Log In</button>
@@ -45,12 +36,13 @@
                             </div>
                         </div>
                     </form>
+
                 </div>
             </div>
             <div class="col-lg-3 col-md-3"></div>
 
         </div>
     </div>
-    @include("component.jslinks")
+    @include('component.jslinks')
 
 </body>

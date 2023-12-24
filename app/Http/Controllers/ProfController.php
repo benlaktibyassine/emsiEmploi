@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Prof;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class ProfController extends Controller
 {
@@ -11,10 +14,10 @@ class ProfController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-{
-    $profs = Prof::all();
-    return view('prof.index', compact('profs'));
-}
+    {
+        $profs = Prof::all();
+        return view('prof.index', compact('profs'));
+    }
 
 
     /**
@@ -100,6 +103,36 @@ class ProfController extends Controller
     {
         //
         $prof->delete();
-        return redirect()->route('profindex')->with("success","Prof is deleted");
+        return redirect()->route('profindex')->with("success", "Prof is deleted");
+    }
+    public function login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $prof = Prof::where('email', $request->email)->first();
+
+        // Check if the user exists
+        if ($prof) {
+            // Check if the provided password matches the hashed password
+            if (Hash::check($request->password, $prof->password)) {
+                // Passwords match, so the login is successful
+                return redirect()->route('log');
+            }
+        }
+
+        // Authentication failed
+        return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        return redirect()->route('login'); // Change this to your desired redirect path
     }
 }

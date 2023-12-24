@@ -52,6 +52,11 @@ Route::resource('profs', ProfController::class)->names([
     "destroy" => "profdestroy",
 ]);
 
+Route::post('/login', [ProfController::class, 'login'])->name("proflogin");
+Route::post('/logout', [ProfController::class, 'logout'])->name('logout');
+Route::get('/log', function () {
+    return view("log");
+})->name("log");
 Route::resource('groupes', GroupeController::class)->names(
     [
         "index" => "groupe.index",
