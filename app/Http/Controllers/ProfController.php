@@ -106,32 +106,33 @@ class ProfController extends Controller
         return redirect()->route('profindex')->with("success", "Prof is deleted");
     }
     public function login(Request $request)
-{
-    $request->validate([
-        'email' => 'required|email',
-        'password' => 'required',
-    ]);
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
 
-    $prof = Prof::where('email', $request->email)->first();
+        $prof = Prof::where('email', $request->email)->first();
 
-    // Check if the user exists and if the password is correct
-    if ($prof && Hash::check($request->password, $prof->password)) {
-        // Store user information in the session
-        session(['user_id' => $prof->id_prof, 'email' => $prof->email]);
-        // Passwords match, so the login is successful
-        return redirect()->route('profindex');
+        // Check if the user exists and if the password is correct
+        if ($prof && Hash::check($request->password, $prof->password)) {
+            // Store user information in the session
+            session(['user_id' => $prof->id_prof, 'email' => $prof->email, 'nom' => $prof->nom, 'prenom' => $prof->prenom]);
+            // Passwords match, so the login is successful
+            // dd(session());
+            return redirect()->route('profindex');
+        }
+
+        // Authentication failed
+        return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
     }
-
-    // Authentication failed
-    return redirect()->back()->withErrors(['email' => 'Invalid credentials']);
-}
 
     public function logout(Request $request)
     {
-        Auth::logout();
+
 
         $request->session()->invalidate();
 
-        return redirect()->route('login'); // Change this to your desired redirect path
+        return redirect()->route('home'); // Change this to your desired redirect path
     }
 }

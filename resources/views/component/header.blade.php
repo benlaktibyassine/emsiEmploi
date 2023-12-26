@@ -72,7 +72,7 @@
                   <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
                       <ul class="navbar-nav ms-auto">
                           <li class="nav-item">
-                              <a href="{{route('home') }}" class="nav-link active">
+                              <a href="{{ route('home') }}" class="nav-link active">
                                   Home
 
                               </a>
@@ -110,6 +110,17 @@
                               </button>
                           </div>
                           <div class="option-item">
+                              <!-- Example in a Blade view -->
+                              {{-- @if (session()->has('user_id'))
+                                  <form method="POST" action="{{ route('profdestroy') }}">
+                                      @csrf
+                                      @method('POST')
+                                      <button type="submit">Destroy Session</button>
+                                  </form>
+                              @else
+                                  <p>Session does not exist.</p>
+                              @endif --}}
+
                               <a href="{{ route('login') }}" class="default-btn">Login</a>
                           </div>
                       </div>

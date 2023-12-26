@@ -16,7 +16,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name="email" required
-                                        placeholder="Email">
+                                        placeholder="Email" value="{{ old('email') }}">
                                     @error('email')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror
