@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Responsable extends Model
 {
     use HasFactory;
+    protected $table = 'respo';
     protected $fillable = [
         'id',
         'id_prof',

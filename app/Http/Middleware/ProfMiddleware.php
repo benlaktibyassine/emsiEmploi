@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Responsable;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,8 +14,24 @@ class ProfMiddleware
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (session()->has('user_id')) {
+            $userId = session('user_id');
+
+            // Check if id_prof exists in the responsable table
+            $responsable = Responsable::where('id_prof', $userId)->first();
+
+            if ($responsable) {
+
+                return $next($request);
+            } else {
+
+                return redirect()->route('log');
+            }
+        }
+
+        // User is not authenticated, redirect to the login page
+        return redirect()->route('login');
     }
 }

@@ -41,16 +41,20 @@ Route::resource('salles', SalleController::class)->names(
         "destroy" => "salle.destroy",
     ]
 );
+Route::middleware(['auth.prof'])->group(function () {
+    
+    Route::resource('profs', ProfController::class)->names([
+        "index" => "profindex",
+        "create" => "profcreate",
+        "store" => "profstore",
+        "show" => "profshow",
+        "edit" => "profedit",
+        "update" => "profupdate",
+        "destroy" => "profdestroy",
+    ]);
+});
 
-Route::resource('profs', ProfController::class)->names([
-    "index" => "profindex",
-    "create" => "profcreate",
-    "store" => "profstore",
-    "show" => "profshow",
-    "edit" => "profedit",
-    "update" => "profupdate",
-    "destroy" => "profdestroy",
-]);
+
 
 Route::post('/login', [ProfController::class, 'login'])->name("proflogin");
 Route::post('/logout', [ProfController::class, 'logout'])->name('logout');
