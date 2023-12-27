@@ -24,14 +24,15 @@ class ProfMiddleware
 
             if ($responsable) {
 
-                return $next($request);
+                return redirect()->route('profindex');
             } else {
+                return $next($request);
 
-                return redirect()->route('log');
             }
         }
 
         // User is not authenticated, redirect to the login page
         return redirect()->route('login');
     }
+
 }

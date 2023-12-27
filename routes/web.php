@@ -42,7 +42,7 @@ Route::resource('salles', SalleController::class)->names(
     ]
 );
 Route::middleware(['auth.prof'])->group(function () {
-    
+
     Route::resource('profs', ProfController::class)->names([
         "index" => "profindex",
         "create" => "profcreate",
@@ -52,15 +52,15 @@ Route::middleware(['auth.prof'])->group(function () {
         "update" => "profupdate",
         "destroy" => "profdestroy",
     ]);
+    Route::get('/log', function () {
+        return view("log");
+    })->name("log");
 });
 
-
-
 Route::post('/login', [ProfController::class, 'login'])->name("proflogin");
-Route::post('/logout', [ProfController::class, 'logout'])->name('logout');
-Route::get('/log', function () {
-    return view("log");
-})->name("log");
+Route::post('/logout', [ProfController::class, 'logout'])->name('proflogout');
+
+
 Route::resource('groupes', GroupeController::class)->names(
     [
         "index" => "groupe.index",

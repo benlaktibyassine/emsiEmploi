@@ -2,22 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class Prof extends Authenticatable
 {
-    use Notifiable;
+    use HasFactory;
 
     protected $primaryKey = 'id_prof';
+
     protected $table = 'profs';
 
-
     protected $fillable = [
-        'nom', 'prenom', 'email', 'password', 'tel',
-    ];
-
-    protected $hidden = [
-        'password', 'remember_token',
+        'id_prof', 'nom', 'prenom', 'email', 'password', 'tel',
     ];
 }

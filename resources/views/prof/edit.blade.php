@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <h1>Edit Professor</h1>
 
-        <form action="{{ route('profupdate', ['prof' => $prof->id_prof]) }}" method="POST">
+        <form action="{{ route('profupdate', ['prof' => $prof->id_prof] ) }}" method="POST">
             @csrf
             @method('PUT')
 

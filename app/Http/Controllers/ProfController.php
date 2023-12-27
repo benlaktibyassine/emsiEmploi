@@ -69,6 +69,7 @@ class ProfController extends Controller
     public function edit(Prof $prof)
     {
         //
+
         return view('prof.edit', compact('prof'));
     }
 
@@ -78,13 +79,13 @@ class ProfController extends Controller
     public function update(Request $request, Prof $prof)
     {
         $request->validate([
-            'nom' => 'required|string|max:255',
-            'prenom' => 'required|string|max:255',
-            'email' => 'required|email|unique:profs,email,' . $prof->id,
-            'tel' => 'required|string|max:20',
+            'nom' =>'required|string|max:255',
+            'prenom' =>'required|string|max:255',
+            'email' =>'required|email|max:255',
+            'tel' =>'required|string|max:20',
             'password' => 'required|string|min:8',
         ]);
-
+        
         $prof->nom = $request->nom;
         $prof->prenom = $request->prenom;
         $prof->email = $request->email;
@@ -94,6 +95,8 @@ class ProfController extends Controller
 
         return redirect()->route('profindex')->with('success', 'Informations updated successfully');
     }
+
+
 
 
     /**
@@ -114,13 +117,13 @@ class ProfController extends Controller
 
         $prof = Prof::where('email', $request->email)->first();
 
-        // Check if the user exists and if the password is correct
+
         if ($prof && Hash::check($request->password, $prof->password)) {
-            // Store user information in the session
+
             session(['user_id' => $prof->id_prof, 'email' => $prof->email, 'nom' => $prof->nom, 'prenom' => $prof->prenom]);
             // Passwords match, so the login is successful
             // dd(session());
-            return redirect()->route('profindex');
+            return redirect()->route('log');
         }
 
         // Authentication failed

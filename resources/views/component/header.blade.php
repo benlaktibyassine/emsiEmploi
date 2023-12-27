@@ -111,17 +111,17 @@
                           </div>
                           <div class="option-item">
                               <!-- Example in a Blade view -->
-                              {{-- @if (session()->has('user_id'))
-                                  <form method="POST" action="{{ route('profdestroy') }}">
+                              @if (session()->has('user_id'))
+                                  <form method="POST" action="{{ route('proflogout') }}">
                                       @csrf
                                       @method('POST')
-                                      <button type="submit">Destroy Session</button>
+                                      <button type="submit" class="default-btn">Log Out</button>
                                   </form>
                               @else
-                                  <p>Session does not exist.</p>
-                              @endif --}}
 
-                              <a href="{{ route('login') }}" class="default-btn">Login</a>
+                                  <a href="{{ route('login') }}" class="default-btn">Login</a>
+                              @endif
+
                           </div>
                       </div>
                   </div>
