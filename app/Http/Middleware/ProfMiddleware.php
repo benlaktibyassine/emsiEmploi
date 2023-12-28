@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Prof;
 use App\Models\Responsable;
 use Closure;
 use Illuminate\Http\Request;
@@ -23,16 +24,17 @@ class ProfMiddleware
             $responsable = Responsable::where('id_prof', $userId)->first();
 
             if ($responsable) {
-
-                return redirect()->route('profindex');
-            } else {
+                session()->put('role', 'admin');
                 return $next($request);
+            } else {
+                session()->put('role', 'user');
+                $prof = Prof::where('id_prof', $userId)->first();
 
+                return response()->view("log",compact('prof'));
             }
         }
 
         // User is not authenticated, redirect to the login page
         return redirect()->route('login');
     }
-
 }

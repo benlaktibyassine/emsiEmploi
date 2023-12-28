@@ -52,6 +52,9 @@ Route::middleware(['auth.prof'])->group(function () {
         "update" => "profupdate",
         "destroy" => "profdestroy",
     ]);
+});
+Route::middleware(['auth.prof'])->group(function () {
+
     Route::get('/log', function () {
         return view("log");
     })->name("log");

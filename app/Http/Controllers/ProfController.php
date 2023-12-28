@@ -85,7 +85,7 @@ class ProfController extends Controller
             'tel' =>'required|string|max:20',
             'password' => 'required|string|min:8',
         ]);
-        
+
         $prof->nom = $request->nom;
         $prof->prenom = $request->prenom;
         $prof->email = $request->email;
@@ -123,7 +123,7 @@ class ProfController extends Controller
             session(['user_id' => $prof->id_prof, 'email' => $prof->email, 'nom' => $prof->nom, 'prenom' => $prof->prenom]);
             // Passwords match, so the login is successful
             // dd(session());
-            return redirect()->route('log');
+            return redirect()->route('profindex');
         }
 
         // Authentication failed
