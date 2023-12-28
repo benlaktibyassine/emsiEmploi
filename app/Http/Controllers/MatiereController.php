@@ -14,6 +14,7 @@ class MatiereController extends Controller
     {
         //
         $matieres = Matiere::all();
+        return view('matiere.index', compact("matieres"));
     }
 
     /**
@@ -31,8 +32,11 @@ class MatiereController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nom_matiere' =>'required|string|max:255',
+        ]);
         $matiere = new Matiere();
-        $matiere->libelle = $request->libelle;
+        $matiere->nom_matiere = $request->nom_matiere;
         $matiere->save();
         return redirect()->route('matiere.index');
     }
@@ -61,7 +65,11 @@ class MatiereController extends Controller
     public function update(Request $request, Matiere $matiere)
     {
         //
-        $matiere->libelle = $request->libelle;
+        $request->validate([
+            'nom_matiere' =>'required|string|max:255',
+
+        ]);
+        $matiere->nom_matiere = $request->nom_matiere;
         $matiere->save();
         return redirect()->route('matiere.index');
     }

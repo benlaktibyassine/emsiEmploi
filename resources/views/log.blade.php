@@ -4,8 +4,12 @@
     @include('component.header')
     <div class="container">
         <p>Bonjour monsier: {{ session('nom') }}</p>
+        <center>
+            <button id="toggleFormBtn" onclick="toggleForm()" class="btn btn-success">Update account information</button>
+        </center>
+
     </div>
-    <div class="container mt-5">
+    <div class="container mt-5" id="editFormContainer" style="display: none;">
         <h1>Edit Professor</h1>
 
         <form action="{{ route('profupdate', ['prof' => $prof->id_prof]) }}" method="POST">
@@ -41,7 +45,14 @@
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
+    @include('component.foot')
+    <script>
+        function toggleForm() {
+            var formContainer = document.getElementById('editFormContainer');
+            formContainer.style.display = (formContainer.style.display === 'none' || formContainer.style.display === '') ? 'block' : 'none';
+        }
+        </script>
+
 </body>
-@include('component.foot')
 
 </html>

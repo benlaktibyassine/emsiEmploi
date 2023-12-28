@@ -1,6 +1,9 @@
 @include("component.head")
 
 <body>
+@include('component.header')
+@include('component.navbar')
+
     <div class="container mt-5">
         <h1>Edit Professor</h1>
 

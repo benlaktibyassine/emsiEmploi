@@ -2,7 +2,7 @@
 
 <body>
     @include('component.header')
-@include('component.navbar')
+    @include('component.navbar')
 
     <div class="container mt-5">
         @if (session('success'))
@@ -16,22 +16,22 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telephone</th>
+                    <th scope="col">Matiere</th>
+
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($profs as $prof)
+                @foreach ($matieres as $matiere)
                     <tr>
-                        <td>{{ $prof->nom }} {{ $prof->prenom }}</td>
-                        <td><a href="{{ route('profshow', ['prof' => $prof->id_prof]) }}">{{ $prof->email }}</a></td>
-                        <td>{{ $prof->tel }}</td>
+                        <td>{{ $matiere->nom_matiere }} </td>
+
                         <td>
-                            <a href="{{ route('profedit', ['prof' => $prof->id_prof]) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('matiere.edit', ['matiere' => $matiere->id_matiere]) }}"
+                                class="btn btn-warning">Edit</a>
                             <!-- You can replace the '#' with the delete route -->
-                            <form action="{{ route('profdestroy', ['prof' => $prof->id_prof]) }}" method="POST">
+                            <form action="{{ route('matiere.destroy', ['matiere' => $matiere->id_matiere]) }}"
+                                method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>
@@ -43,6 +43,6 @@
         </table>
     </div>
 
-    </body>
+</body>
 
-        </html>
+</html>

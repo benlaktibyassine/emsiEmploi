@@ -1,5 +1,6 @@
 @include('component.head')
 @include('component.header')
+@include('component.navbar')
 <div class="page-banner-area portfolio-page-area mt-1">
     <div class="container">
         <div class="single-page-banner-content">

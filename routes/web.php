@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\ProfController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -53,6 +54,18 @@ Route::middleware(['auth.prof'])->group(function () {
         "destroy" => "profdestroy",
     ]);
 });
+Route::resource('matieres',MatiereController::class)->names(
+    [
+        'index' => 'matiere.index',
+        'create' => 'matiere.create',
+        'show'=>'matiere.show',
+        "store" => "matiere.store",
+        "show" => "matiere.show",
+        "edit" => "matiere.edit",
+        "update" => "matiere.update",
+        "destroy" => "matiere.destroy"
+    ]
+);
 Route::middleware(['auth.prof'])->group(function () {
 
     Route::get('/log', function () {
