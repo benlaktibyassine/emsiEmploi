@@ -17,6 +17,12 @@
                 <label for="id_local" class="form-label">ID du local</label>
                 <input type="text" class="form-control" id="id_local" name="id_local" required>
             </div>
+            <select name="id_local" id="">
+                @foreach ($locales as $local )
+<option value="{{ $locale_id }}"></option>
+                @endforeach
+            </select>
+
             <button type="submit" class="btn btn-primary">Ajouter l'étage</button>
         </form>
     </div>
