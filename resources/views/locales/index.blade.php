@@ -1,35 +1,36 @@
 @include('component.head')
 @include('component.header')
 @include('component.navbar')
-    <div class="container">
-        <h2>Locales</h2>
-        <a href="{{ route('locales.create') }}" class="btn btn-primary">Create New Locale</a>
+<div class="container">
+    <h2>Locales</h2>
+    <a href="{{ route('locale.create') }}" class="btn btn-primary">Create New Locale</a>
 
-        <table class="table mt-3">
-            <thead>
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($locales as $local)
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Actions</th>
+                    <td>{{ $local->id_local }}</td>
+                    <td>{{ $local->nom_local }}</td>
+                    <td>
+
+                        <a href="{{ route('locale.edit', ['locale' => $local->id_local]) }}"
+                            class="btn btn-warning">Edit</a>
+                        <form action="{{ route('locale.destroy', ['locale' => $local->id_local]) }}" method="POST"
+                            style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach ($locales as $locale)
-                    <tr>
-                        <td>{{ $locale->id }}</td>
-                        <td>{{ $locale->nom_locale }}</td>
-                        <td>
-                            <a href="{{ route('locales.show', $locale->id) }}" class="btn btn-info">View</a>
-                            <a href="{{ route('locales.edit', $locale->id) }}" class="btn btn-warning">Edit</a>
-                            <form action="{{ route('locales.destroy', $locale->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger" onclick="return confirm('supprimer ce local ?')">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-@endsection
+            @endforeach
+        </tbody>
+    </table>
+</div>

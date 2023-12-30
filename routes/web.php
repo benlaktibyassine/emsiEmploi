@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfController;
 use App\Http\Controllers\LocalController;
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\GroupeController;
+use App\Http\Controllers\JourController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -25,13 +26,13 @@ Route::get('/', function () {
 })->name('home');
 Route::resource('locales', LocalController::class)->names(
     [
-        "index" => "local.index",
-        "create" => "local.create",
-        "store" => "local.store",
-        "show" => "local.show",
-        "edit" => "local.edit",
-        "update" => "local.update",
-        "destroy" => "local.destroy",
+        "index" => "locale.index",
+        "create" => "locale.create",
+        "store" => "locale.store",
+        "show" => "locale.show",
+        "edit" => "locale.edit",
+        "update" => "locale.update",
+        "destroy" => "locale.destroy",
     ]
 );
 Route::resource('salles', SalleController::class)->names(
@@ -60,7 +61,6 @@ Route::middleware(['auth.prof'])->group(function () {
         [
             'index' => 'matiere.index',
             'create' => 'matiere.create',
-
             "store" => "matiere.store",
             "show" => "matiere.show",
             "edit" => "matiere.edit",
@@ -68,11 +68,11 @@ Route::middleware(['auth.prof'])->group(function () {
             "destroy" => "matiere.destroy"
         ]
     );
+
     Route::resource('jours', JourController::class)->names(
         [
             'index' => 'jour.index',
             'create' => 'jour.create',
-
             "store" => "jour.store",
             "show" => "jour.show",
             "edit" => "jour.edit",

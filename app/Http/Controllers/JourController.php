@@ -14,7 +14,7 @@ class JourController extends Controller
     {
         //
         $jours = Jour::all();
-        return view('jours.index', compact("jours"));
+        return view('jour.index', compact("jours"));
     }
 
     /**
@@ -23,7 +23,7 @@ class JourController extends Controller
     public function create()
     {
         //
-        return view('jours.create');
+        return view('jour.create');
     }
 
     /**
@@ -32,13 +32,13 @@ class JourController extends Controller
     public function store(Request $request)
     {
         //
-            $request->validate([
-                'jour' =>'required|string|max:255',
-            ]);
-            $jour = new Jour();
-            $jour->nom_jour = $request->nom_jour;
-            $jour->save();
-            return redirect()->route('jour.index');
+        $request->validate([
+            'nom_jour' => 'required|string|max:255',
+        ]);
+        $jour = new Jour();
+        $jour->nom_jour = $request->nom_jour;
+        $jour->save();
+        return redirect()->route('jour.index');
     }
 
     /**
@@ -47,7 +47,7 @@ class JourController extends Controller
     public function show(Jour $jour)
     {
         //
-
+        return view('jour.show', compact('jour'));
     }
 
     /**
@@ -56,7 +56,7 @@ class JourController extends Controller
     public function edit(Jour $jour)
     {
         //
-
+        return view('jour.edit', compact('jour'));
     }
 
     /**
@@ -64,7 +64,13 @@ class JourController extends Controller
      */
     public function update(Request $request, Jour $jour)
     {
-        //
+        $request->validate([
+            'nom_jour' => 'required|string|max:255',
+
+        ]);
+        $jour->nom_jour = $request->nom_jour;
+        $jour->save();
+        return redirect()->route('jour.index');
     }
 
     /**
@@ -72,7 +78,6 @@ class JourController extends Controller
      */
     public function destroy(Jour $jour)
     {
-        //
         $jour->delete();
         return redirect()->route('jour.index');
     }

@@ -32,48 +32,53 @@ class LocalController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom_locale' => 'required|string|max:255',
+            'nom_local' => 'required|string|max:255',
             // Ajoutez d'autres règles de validation au besoin
         ]);
-        Local::create($request->all());
-        return redirect()->route('locales.index');
+
+        $local = new Local();
+        $local->nom_local = $request->nom_local;
+        $local->save();
+        return redirect()->route('locale.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Local $local)
+    public function show(Local $locale)
     {
         //
-        return view('locales.show', compact('local'));
+        return view('locales.show', compact('locale'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Local $local)
+    public function edit(Local $locale)
     {
         //
-        return view('locales.edit', compact('local'));
+        // dd("r");
+        return view('locales.edit', compact('locale'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Local $local)
+    public function update(Request $request, Local $locale)
     {
         //
-        $local->update($request->all());
-        return redirect()->route('locales.index');
+        $locale->update($request->all());
+        return redirect()->route('locale.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Local $local)
+    public function destroy(Local $locale)
     {
         //
-        $local->delete();
-        return redirect()->route('locales.index');
+        // dd($local);
+        $locale->delete();
+        return redirect()->route('locale.index');
     }
 }

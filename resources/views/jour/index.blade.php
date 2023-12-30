@@ -22,7 +22,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($jour as $jour)
+                @foreach ($jours as $jour)
                     <tr>
                         <td>{{ $jour->nom_jour }} </td>
 
