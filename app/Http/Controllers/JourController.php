@@ -13,6 +13,8 @@ class JourController extends Controller
     public function index()
     {
         //
+        $jours = Jour::all();
+        return view('jours.index', compact("jours"));
     }
 
     /**
@@ -21,6 +23,7 @@ class JourController extends Controller
     public function create()
     {
         //
+        return view('jours.create');
     }
 
     /**
@@ -29,6 +32,13 @@ class JourController extends Controller
     public function store(Request $request)
     {
         //
+            $request->validate([
+                'jour' =>'required|string|max:255',
+            ]);
+            $jour = new Jour();
+            $jour->nom_jour = $request->nom_jour;
+            $jour->save();
+            return redirect()->route('jour.index');
     }
 
     /**
@@ -37,6 +47,7 @@ class JourController extends Controller
     public function show(Jour $jour)
     {
         //
+
     }
 
     /**
@@ -45,6 +56,7 @@ class JourController extends Controller
     public function edit(Jour $jour)
     {
         //
+
     }
 
     /**
@@ -61,5 +73,7 @@ class JourController extends Controller
     public function destroy(Jour $jour)
     {
         //
+        $jour->delete();
+        return redirect()->route('jour.index');
     }
 }

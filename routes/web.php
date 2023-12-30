@@ -53,19 +53,32 @@ Route::middleware(['auth.prof'])->group(function () {
         "update" => "profupdate",
         "destroy" => "profdestroy",
     ]);
+    Route::resource('matieres', MatiereController::class)->names(
+        [
+            'index' => 'matiere.index',
+            'create' => 'matiere.create',
+
+            "store" => "matiere.store",
+            "show" => "matiere.show",
+            "edit" => "matiere.edit",
+            "update" => "matiere.update",
+            "destroy" => "matiere.destroy"
+        ]
+    );
+    Route::resource('jours', JourController::class)->names(
+        [
+            'index' => 'jour.index',
+            'create' => 'jour.create',
+
+            "store" => "jour.store",
+            "show" => "jour.show",
+            "edit" => "jour.edit",
+            "update" => "jour.update",
+            "destroy" => "jour.destroy"
+        ]
+    );
 });
-Route::resource('matieres',MatiereController::class)->names(
-    [
-        'index' => 'matiere.index',
-        'create' => 'matiere.create',
-        'show'=>'matiere.show',
-        "store" => "matiere.store",
-        "show" => "matiere.show",
-        "edit" => "matiere.edit",
-        "update" => "matiere.update",
-        "destroy" => "matiere.destroy"
-    ]
-);
+
 Route::middleware(['auth.prof'])->group(function () {
 
     Route::get('/log', function () {
