@@ -118,7 +118,6 @@
                                       <button type="submit" class="default-btn">Log Out</button>
                                   </form>
                               @else
-
                                   <a href="{{ route('login') }}" class="default-btn">Login</a>
                               @endif
 

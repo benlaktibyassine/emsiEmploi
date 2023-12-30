@@ -1,11 +1,14 @@
 @include('component.head')
 @include('component.header')
-@include('component.navbar')
+
+<body>
+
+    @include('component.navbar')
 
 
     <div class="container">
         <h2>Edit Locale</h2>
-        <form action="{{ route('locale.update', $locale->id_local   ) }}" method="POST">
+        <form action="{{ route('locale.update', $locale->id_local) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -18,4 +21,4 @@
             <button type="submit" class="btn btn-primary">Update Locale</button>
         </form>
     </div>
-
+</body>
