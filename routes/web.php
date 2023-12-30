@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\ProfController;
+use App\Http\Controllers\LocalController;
+use App\Http\Controllers\SalleController;
+use App\Http\Controllers\GroupeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
