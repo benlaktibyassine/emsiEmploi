@@ -34,7 +34,7 @@
         </table>
     </div> --}}
 
-    <div class="container">
+     <div class="container">
         <h2>Liste des salles</h2>
         <a href="{{ route('salle.create') }}" class="btn btn-primary">Ajouter une salle</a>
         <table class="table mt-3">
