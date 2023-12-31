@@ -13,7 +13,7 @@
         <li><a href="{{ route('etage.create') }}">Ajouter etages</a></li> --}}
         <li><a href="{{ route('locale.index') }}">Liste locales</a></li>
         <li><a href="{{ route('locale.create') }}">Ajouter locales</a></li>
-        <li><a href="{{ route('etage.index') }}">Liste etages</a></li>
+         <li><a href="{{ route('etage.index') }}">Liste etages</a></li>
         <li><a href="{{ route('etage.create') }}">Ajouter etage</a></li>
     </ul>
 </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Etage;
 use Illuminate\Http\Request;
+use App\Models\Local;
 
 class EtageController extends Controller
 {
@@ -12,8 +13,8 @@ class EtageController extends Controller
      */
     public function index()
     {
-        $etages = Etage::all();
-        return view('etages.index', compact('etages'));
+        $etages = Etage::with('locale')->get();
+    return view('etage.index', compact('etages'));
     }
 
     /**
@@ -21,7 +22,8 @@ class EtageController extends Controller
      */
     public function create()
     {
-        return view('etages.create');
+        $locales = Local::all(); // Fetch all locales from the database
+        return view('etage.create', compact('locales'));
     }
 
     /**
@@ -31,12 +33,19 @@ class EtageController extends Controller
     {
         $request->validate([
             'nom_etage' => 'required|string|max:255',
-            'id_local' => 'required|exists:locales,id_locale',
-            
+            'id_local' => 'required|exists:locals,id_local', 
         ]);
-
-        Etage::create($request->all());
-        return redirect()->route('etages.index');
+    
+        
+        $etage = Etage::create([
+            'nom_etage' => $request->nom_etage,
+        ]);
+        
+        $etage->locale()->create(['id_local' => $request->id_local]);
+            $etage->save();
+    
+            return redirect()->route('etages.index')->with('success', 'L\'étage a été ajouté avec succès.');
+        
     }
 
     /**
@@ -44,7 +53,7 @@ class EtageController extends Controller
      */
     public function show(Etage $etage)
     {
-        return view('etages.show', compact('etage'));
+        return view('etage.show', compact('etage'));
     }
 
     /**
@@ -52,7 +61,9 @@ class EtageController extends Controller
      */
     public function edit(Etage $etage)
     {
-        return view('etages.edit', compact('etage'));
+        
+        $locales = Local::all(); // Fetch all locales from the database
+    return view('etage.edit', compact('etage', 'locales'));
     }
 
     /**
@@ -67,7 +78,7 @@ class EtageController extends Controller
         ]);
 
         $etage->update($request->all());
-        return redirect()->route('etages.index');
+        return redirect()->route('etage.index');
     }
 
     /**
@@ -76,6 +87,6 @@ class EtageController extends Controller
     public function destroy(Etage $etage)
     {
         $etage->delete();
-        return redirect()->route('etages.index');
+        return redirect()->route('etage.index');
     }
 }
