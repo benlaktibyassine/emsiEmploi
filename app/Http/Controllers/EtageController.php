@@ -13,8 +13,8 @@ class EtageController extends Controller
      */
     public function index()
     {
-        $etages = Etage::with('locale')->get();
-    return view('etage.index', compact('etages'));
+        $etages = Etage::with('locales')->get(); // Corrected the relationship name
+        return view('etage.index', compact('etages'));
     }
 
     /**
@@ -22,7 +22,7 @@ class EtageController extends Controller
      */
     public function create()
     {
-        $locales = Local::all(); // Fetch all locales from the database
+        $locales = Local::all();
         return view('etage.create', compact('locales'));
     }
 
@@ -33,19 +33,21 @@ class EtageController extends Controller
     {
         $request->validate([
             'nom_etage' => 'required|string|max:255',
-            'id_local' => 'required|exists:locals,id_local', 
+            'id_local' => 'required|exists:locals,id_local',
         ]);
-    
-        
+
         $etage = Etage::create([
             'nom_etage' => $request->nom_etage,
+            'id_local' => $request->id_local,
         ]);
-        
-        $etage->locale()->create(['id_local' => $request->id_local]);
-            $etage->save();
-    
-            return redirect()->route('etages.index')->with('success', 'L\'étage a été ajouté avec succès.');
-        
+
+        // // Assuming you have a 'locales' relationship defined in your Etage model
+        // $etage->locales()->create([
+        //     'id_local' => $request->id_local,
+        //     'nom_local' => $request->nom_local, // Add this line if 'nom_local' is required
+        // ]);
+
+        return redirect()->route('etage.index')->with('success', 'L\'étage a été ajouté avec succès.');
     }
 
     /**
@@ -61,9 +63,8 @@ class EtageController extends Controller
      */
     public function edit(Etage $etage)
     {
-        
-        $locales = Local::all(); // Fetch all locales from the database
-    return view('etage.edit', compact('etage', 'locales'));
+        $locales = Local::all();
+        return view('etage.edit', compact('etage', 'locales'));
     }
 
     /**
@@ -73,8 +74,7 @@ class EtageController extends Controller
     {
         $request->validate([
             'nom_etage' => 'required|string|max:255',
-            'id_local' => 'required|exists:locales,id_locale',
-           
+            'id_local' => 'required|exists:locals,id_local', // Corrected the field name
         ]);
 
         $etage->update($request->all());

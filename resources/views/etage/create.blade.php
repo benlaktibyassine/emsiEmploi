@@ -3,7 +3,7 @@
 
     <div class="container">
         <h2>Ajouter un étage</h2>
-        <form action="{{ route('etages.store') }}" method="POST">
+        <form action="{{ route('etage.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="nom_etage" class="form-label">Nom de l'étage</label>
@@ -20,4 +20,3 @@
             <button type="submit" class="btn btn-primary">Ajouter</button>
         </form>
     </div>
-@endsection

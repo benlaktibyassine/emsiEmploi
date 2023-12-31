@@ -9,10 +9,14 @@ class Local extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_local';
-    // protected $table = 'locals';
+    protected $table = 'locals';
 
-    protected $fillable=[
+    protected $fillable = [
         "id_local",
         "nom_local"
     ];
+    public function etage()
+    {
+        return $this->belongsTo(Etage::class, 'id_local');
+    }
 }

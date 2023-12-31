@@ -9,14 +9,15 @@ use App\Models\Local;
 class Etage extends Model
 {
     use HasFactory;
-    protected $fillable=[
+    protected $primaryKey = 'id_etage';
+    protected $fillable = [
         "id_etage",
         "nom_etage",
         "id_local"
     ];
 
-    public function locale()
+    public function locales()
     {
-        return $this->belongsTo(Local::class, 'id_local', 'id_locale');
+        return $this->hasMany(Local::class, 'id_local', 'id_local');
     }
 }

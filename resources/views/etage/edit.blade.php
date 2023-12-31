@@ -3,7 +3,7 @@
 @include('component.navbar')
     <div class="container">
         <h2>Modifiere l'étage</h2>
-        <form action="{{ route('etages.update', $etage->id_etage) }}" method="POST">
+        <form action="{{ route('etage.update', $etage->id_etage) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -17,4 +17,4 @@
             <button type="submit" class="btn btn-primary">Modifier l'étage</button>
         </form>
     </div>
-@endsection
+
