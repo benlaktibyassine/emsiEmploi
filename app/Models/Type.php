@@ -9,7 +9,7 @@ class Type extends Model
 {
     use HasFactory;
     protected $fillable=[
-        "id_type",
+        "id",
         "nom_type"
     ];
 }

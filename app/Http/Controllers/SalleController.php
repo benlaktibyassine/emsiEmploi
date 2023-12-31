@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Etage;
 use App\Models\Salle;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class SalleController extends Controller
@@ -14,7 +15,7 @@ class SalleController extends Controller
     public function index()
     {
         $salles = Salle::all();
-        return view('salles.index', compact('salles'));
+        return view('salle.index', compact('salles'));
     }
 
     /**
@@ -22,10 +23,11 @@ class SalleController extends Controller
      */
     public function create()
     {
-        $types = Salle::distinct()->pluck('id_type');
+        // $types = Salle::distinct()->pluck('id_type');
+        $types = Type::all();
         $etages = Etage::all();
 
-        return view('salles.create', compact('types', 'etages'));
+        return view('salle.create', compact('types', 'etages'));
     }
 
     /**
@@ -34,14 +36,14 @@ class SalleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'code_salle' => 'required|string|max:255',
+            'code_salle' => 'required|string|max:255|unique:salles,code_salle',
             'id_etage' => 'required|exists:etages,id_etage',
-            'id_type' => 'required|exists:types,id_type',
+            'id_type' => 'required|exists:types,id',
             // Ajoutez d'autres règles de validation au besoin
         ]);
 
         Salle::create($request->all());
-        return redirect()->route('salles.index');
+        return redirect()->route('salle.index');
     }
 
     /**
@@ -57,10 +59,11 @@ class SalleController extends Controller
      */
     public function edit(Salle $salle)
     {
-        $types = Salle::distinct()->pluck('id_type');
+        // $types = Salle::distinct()->pluck('id_type');
+        $types = Type::all();
         $etages = Etage::all();
 
-        return view('salles.edit', compact('salle', 'types', 'etages'));
+        return view('salle.edit', compact('salle', 'types', 'etages'));
     }
 
     /**
@@ -71,12 +74,12 @@ class SalleController extends Controller
         $request->validate([
             'code_salle' => 'required|string|max:255|unique:salles,code_salle',
             'id_etage' => 'required|exists:etages,id_etage',
-            'id_type' => 'required|exists:types,id_type',
+            'id_type' => 'required|exists:types,id',
 
         ]);
 
         $salle->update($request->all());
-        return redirect()->route('salles.index');
+        return redirect()->route('salle.index');
     }
 
     /**
@@ -85,6 +88,6 @@ class SalleController extends Controller
     public function destroy(Salle $salle)
     {
         $salle->delete();
-        return redirect()->route('salles.index');
+        return redirect()->route('salle.index')->with('success', 'La salle a été supprimée avec succès.');
     }
 }

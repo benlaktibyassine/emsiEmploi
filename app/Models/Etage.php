@@ -21,4 +21,9 @@ class Etage extends Model
     return $this->belongsTo(Local::class, 'id_local');
 }
 
+public function type()
+    {
+        return $this->belongsTo(Type::class, 'id_type', 'id');
+    }
+
 }

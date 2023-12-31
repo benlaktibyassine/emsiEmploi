@@ -8,8 +8,20 @@ use Illuminate\Database\Eloquent\Model;
 class Salle extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'code_salle';
     protected $fillable=[
-        "id_salle",
-        "nom_salle"
+        "code_salle",
+        "id_etage",
+        "id_type"
     ];
+
+    public function etage()
+    {
+        return $this->belongsTo(Etage::class, 'id_etage', 'id_etage');
+    }
+
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'id_type', 'id');
+    }
 }
