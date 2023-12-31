@@ -31,7 +31,7 @@
                                 class="btn btn-warning">Edit</a>
                             <!-- You can replace the '#' with the delete route -->
                             <form action="{{ route('jour.destroy', ['jour' => $jour->id]) }}"
-                                method="POST">
+                                method="POST" style="display: inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>

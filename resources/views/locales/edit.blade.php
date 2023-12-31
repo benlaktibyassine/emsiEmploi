@@ -13,7 +13,7 @@
             @method('PUT')
             <div class="form-group">
                 <label for="nom_locale">Locale Name:</label>
-                <input type="text" name="nom_locale" class="form-control" value="{{ $locale->nom_local }}" required>
+                <input type="text" name="nom_local" class="form-control" value="{{ $locale->nom_local }}" required>
             </div>
 
 

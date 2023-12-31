@@ -31,7 +31,7 @@
                         <td>
                             <a href="{{ route('profedit', ['prof' => $prof->id_prof]) }}" class="btn btn-warning">Edit</a>
                             <!-- You can replace the '#' with the delete route -->
-                            <form action="{{ route('profdestroy', ['prof' => $prof->id_prof]) }}" method="POST">
+                            <form action="{{ route('profdestroy', ['prof' => $prof->id_prof]) }}" method="POST"  style="display: inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>

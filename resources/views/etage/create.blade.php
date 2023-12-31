@@ -18,8 +18,8 @@
                 <input type="text" class="form-control" id="id_local" name="id_local" required>
             </div>
             <select name="id_local" id="">
-                @foreach ($locales as $local )
-<option value="{{ $locale_id }}"></option>
+                @foreach ($locales as $local)
+                    <option value="{{ $locale_id }}"></option>
                 @endforeach
             </select>
 

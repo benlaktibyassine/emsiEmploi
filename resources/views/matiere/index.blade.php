@@ -31,7 +31,7 @@
                                 class="btn btn-warning">Edit</a>
                             <!-- You can replace the '#' with the delete route -->
                             <form action="{{ route('matiere.destroy', ['matiere' => $matiere->id_matiere]) }}"
-                                method="POST">
+                                method="POST"  style="display: inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>
