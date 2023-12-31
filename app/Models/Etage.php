@@ -16,8 +16,9 @@ class Etage extends Model
         "id_local"
     ];
 
-    public function locales()
-    {
-        return $this->hasMany(Local::class, 'id_local', 'id_local');
-    }
+    public function local()
+{
+    return $this->belongsTo(Local::class, 'id_local');
+}
+
 }

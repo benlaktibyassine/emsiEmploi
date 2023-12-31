@@ -13,7 +13,9 @@ class EtageController extends Controller
      */
     public function index()
     {
-        $etages = Etage::with('locales')->get(); // Corrected the relationship name
+        $etages = Etage::with('local')->get();
+
+        // Corrected the relationship name
         return view('etage.index', compact('etages'));
     }
 

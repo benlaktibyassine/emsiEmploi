@@ -9,7 +9,7 @@
     <table class="table mt-3">
         <thead>
             <tr>
-                
+
                 <th>Nom de l'étage</th>
                 <th>Nom du local</th>
                 <th>Actions</th>
@@ -22,8 +22,7 @@
                     <td>{{ $etage->nom_etage }}</td>
 
                     <!-- Check if locales is not empty before accessing the first locale -->
-                    <td>{{ $etage->locales->isNotEmpty() ? $etage->locales->first()->nom_locale : 'N/A' }}</td>
-
+                    <td>{{ $etage->local->nom_local }}</td>
                     <td>
                         <a href="{{ route('etage.show', $etage->id_etage) }}" class="btn btn-info">Voir</a>
                         <a href="{{ route('etage.edit', $etage->id_etage) }}" class="btn btn-warning">Modifier</a>
