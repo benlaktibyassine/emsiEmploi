@@ -9,6 +9,7 @@ class Local extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_local';
+    // protected $table = 'locals';
 
     protected $fillable=[
         "id_local",

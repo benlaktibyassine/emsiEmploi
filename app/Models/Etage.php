@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Local;
 
 class Etage extends Model
 {
@@ -13,4 +14,9 @@ class Etage extends Model
         "nom_etage",
         "id_local"
     ];
+
+    public function locale()
+    {
+        return $this->belongsTo(Local::class, 'id_local', 'id_locale');
+    }
 }

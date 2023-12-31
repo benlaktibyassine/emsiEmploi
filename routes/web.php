@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EtageController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\ProfController;
 use App\Http\Controllers\LocalController;
@@ -44,6 +45,18 @@ Route::resource('salles', SalleController::class)->names(
         "edit" => "salle.edit",
         "update" => "salle.update",
         "destroy" => "salle.destroy",
+    ]
+);
+
+Route::resource('etages', EtageController::class)->names(
+    [
+        "index" => "etage.index",
+        "create" => "etage.create",
+        "store" => "etage.store",
+        "show" => "etage.show",
+        "edit" => "etage.edit",
+        "update" => "etage.update",
+        "destroy" => "etage.destroy",
     ]
 );
 Route::middleware(['auth.prof'])->group(function () {
