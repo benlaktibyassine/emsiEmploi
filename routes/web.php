@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\EtageController;
+use App\Http\Controllers\FilliereController;
 use App\Http\Controllers\MatiereController;
 use App\Http\Controllers\ProfController;
 use App\Http\Controllers\LocalController;
@@ -25,41 +26,41 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 })->name('home');
-Route::resource('locales', LocalController::class)->names(
-    [
-        "index" => "locale.index",
-        "create" => "locale.create",
-        "store" => "locale.store",
-        "show" => "locale.show",
-        "edit" => "locale.edit",
-        "update" => "locale.update",
-        "destroy" => "locale.destroy",
-    ]
-);
-Route::resource('salles', SalleController::class)->names(
-    [
-        "index" => "salle.index",
-        "create" => "salle.create",
-        "store" => "salle.store",
-        "show" => "salle.show",
-        "edit" => "salle.edit",
-        "update" => "salle.update",
-        "destroy" => "salle.destroy",
-    ]
-);
-
-Route::resource('etages', EtageController::class)->names(
-    [
-        "index" => "etage.index",
-        "create" => "etage.create",
-        "store" => "etage.store",
-        "show" => "etage.show",
-        "edit" => "etage.edit",
-        "update" => "etage.update",
-        "destroy" => "etage.destroy",
-    ]
-);
 Route::middleware(['auth.prof'])->group(function () {
+    Route::resource('locales', LocalController::class)->names(
+        [
+            "index" => "locale.index",
+            "create" => "locale.create",
+            "store" => "locale.store",
+            "show" => "locale.show",
+            "edit" => "locale.edit",
+            "update" => "locale.update",
+            "destroy" => "locale.destroy",
+        ]
+    );
+    Route::resource('salles', SalleController::class)->names(
+        [
+            "index" => "salle.index",
+            "create" => "salle.create",
+            "store" => "salle.store",
+            "show" => "salle.show",
+            "edit" => "salle.edit",
+            "update" => "salle.update",
+            "destroy" => "salle.destroy",
+        ]
+    );
+
+    Route::resource('etages', EtageController::class)->names(
+        [
+            "index" => "etage.index",
+            "create" => "etage.create",
+            "store" => "etage.store",
+            "show" => "etage.show",
+            "edit" => "etage.edit",
+            "update" => "etage.update",
+            "destroy" => "etage.destroy",
+        ]
+    );
 
     Route::resource('profs', ProfController::class)->names([
         "index" => "profindex",
@@ -91,6 +92,17 @@ Route::middleware(['auth.prof'])->group(function () {
             "edit" => "jour.edit",
             "update" => "jour.update",
             "destroy" => "jour.destroy"
+        ]
+    );
+    Route::resource("fillieres", FilliereController::class)->names(
+        [
+            'index' => 'fillieres.index',
+            'create' => 'fillieres.create',
+            "store" => "fillieres.store",
+            "show" => "fillieres.show",
+            "edit" => "fillieres.edit",
+            "update" => "fillieres.update",
+            "destroy" => "fillieres.destroy"
         ]
     );
 });

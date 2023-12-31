@@ -17,8 +17,7 @@ class Etage extends Model
     ];
 
     public function local()
-{
-    return $this->belongsTo(Local::class, 'id_local');
-}
-
+    {
+        return $this->belongsTo(Local::class, 'id_local');
+    }
 }
