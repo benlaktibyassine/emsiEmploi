@@ -78,7 +78,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="fillieresDropdown">
                 <a class="dropdown-item" href="{{ route('types.index') }}">Liste des types</a>
-                <a class="dropdown-item" href="{{ route('types.create') }}">Ajouter Fillieres</a>
+                <a class="dropdown-item" href="{{ route('types.create') }}">Ajouter Type</a>
             </div>
         </li>
 
