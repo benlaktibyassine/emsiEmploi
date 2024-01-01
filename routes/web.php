@@ -8,6 +8,7 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\JourController;
+use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -103,6 +104,17 @@ Route::middleware(['auth.prof'])->group(function () {
             "edit" => "fillieres.edit",
             "update" => "fillieres.update",
             "destroy" => "fillieres.destroy"
+        ]
+    );
+    Route::resource("types", TypeController::class)->names(
+        [
+            'index' => 'types.index',
+            'create' => 'types.create',
+            "store" => "types.store",
+            "show" => "types.show",
+            "edit" => "types.edit",
+            "update" => "types.update",
+            "destroy" => "types.destroy"
         ]
     );
 });

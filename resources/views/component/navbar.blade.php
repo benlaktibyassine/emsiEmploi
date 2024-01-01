@@ -72,6 +72,16 @@
             </div>
         </li>
 
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="fillieresDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Types
+            </a>
+            <div class="dropdown-menu" aria-labelledby="fillieresDropdown">
+                <a class="dropdown-item" href="{{ route('types.index') }}">Liste des types</a>
+                <a class="dropdown-item" href="{{ route('types.create') }}">Ajouter Type</a>
+            </div>
+        </li>
+
         {{-- Other menu items --}}
     </ul>
 </div>

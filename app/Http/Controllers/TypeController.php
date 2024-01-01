@@ -12,8 +12,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-
         $types = Type::all();
+        return view('types.index', compact('types'));
     }
 
     /**
@@ -21,8 +21,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-
-        return view('type.create');
+        return view('types.create');
     }
 
     /**
@@ -31,12 +30,11 @@ class TypeController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nom_type' => ['required', 'max:255'],
+            'nom_type' => 'required|string|max:255|unique:types,nom_type',
         ]);
-        $type = new Type();
-        $type->nom_type = $request->nom_type;
-        $type->save();
-        return redirect()->route("type.index")->with('success', "Le type a bien été ajouté");
+
+        Type::create($request->all());
+        return redirect()->route('types.index')->with('success', 'Le type a été ajouté avec succès.');
     }
 
     /**
@@ -44,7 +42,7 @@ class TypeController extends Controller
      */
     public function show(Type $type)
     {
-        return view('type.show', compact('type'));
+        return view('types.show', compact('type'));
     }
 
     /**
@@ -52,8 +50,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
-        return view("type.edit");
+        return view('types.edit', compact('type'));
     }
 
     /**
@@ -61,12 +58,12 @@ class TypeController extends Controller
      */
     public function update(Request $request, Type $type)
     {
-        //
         $request->validate([
-            'nom_type' => ['string', 'max:255'],
+            'nom_type' => 'required|string|max:255|unique:types,nom_type,' . $type->id,
         ]);
+
         $type->update($request->all());
-        return redirect()->route("type.index")->with("success", "le type a bien été modifié");
+        return redirect()->route('types.index')->with('success', 'Le type a été modifié avec succès.');
     }
 
     /**
@@ -75,6 +72,6 @@ class TypeController extends Controller
     public function destroy(Type $type)
     {
         $type->delete();
-        return redirect()->route("type.index")->with("success", "Le type a bien été supprimé");
+        return redirect()->route('types.index')->with('success', 'Le type a été supprimé avec succès.');
     }
 }
