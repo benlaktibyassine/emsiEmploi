@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Semestre extends Model
 {
     use HasFactory;
-    protected $fillable=[
-        "id_semestre",
-        "nom_semestre"
-    ];
+    protected $primaryKey = 'id_sem'; // Assurez-vous que c'est la colonne de clé primaire correcte
+    protected $fillable = ['sem'];
 }

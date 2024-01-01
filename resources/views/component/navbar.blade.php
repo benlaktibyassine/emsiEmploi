@@ -82,6 +82,16 @@
             </div>
         </li>
 
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="fillieresDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Semestre
+            </a>
+            <div class="dropdown-menu" aria-labelledby="fillieresDropdown">
+                <a class="dropdown-item" href="{{ route('semestres.index') }}">Liste des Semestres</a>
+                <a class="dropdown-item" href="{{ route('semestres.create') }}">Ajouter Semestre</a>
+            </div>
+        </li>
+
         {{-- Other menu items --}}
     </ul>
 </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\JourController;
+use App\Http\Controllers\SemestreController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -115,6 +116,18 @@ Route::middleware(['auth.prof'])->group(function () {
             "edit" => "types.edit",
             "update" => "types.update",
             "destroy" => "types.destroy"
+        ]
+    );
+
+    Route::resource("semestres", SemestreController::class)->names(
+        [
+            'index' => 'semestres.index',
+            'create' => 'semestres.create',
+            "store" => "semestres.store",
+            "show" => "semestres.show",
+            "edit" => "semestres.edit",
+            "update" => "semestres.update",
+            "destroy" => "semestres.destroy"
         ]
     );
 });
