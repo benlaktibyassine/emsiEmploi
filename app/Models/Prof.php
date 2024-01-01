@@ -17,4 +17,8 @@ class Prof extends Authenticatable
     protected $fillable = [
         'id_prof', 'nom', 'prenom', 'email', 'password', 'tel',
     ];
+    public function responsables()
+    {
+        return $this->hasOne(Responsable::class, 'id_prof');
+    }
 }

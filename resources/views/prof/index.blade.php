@@ -2,12 +2,17 @@
 
 <body>
     @include('component.header')
-@include('component.navbar')
+    @include('component.navbar')
 
     <div class="container mt-5">
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
+            </div>
+        @endif
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
             </div>
         @endif
 
@@ -25,17 +30,30 @@
             <tbody>
                 @foreach ($profs as $prof)
                     <tr>
+                        @if(session('user_id') && $prof->id_prof == session('user_id'))
+                        @continue
+                    @endif
                         <td>{{ $prof->nom }} {{ $prof->prenom }}</td>
                         <td><a href="{{ route('profshow', ['prof' => $prof->id_prof]) }}">{{ $prof->email }}</a></td>
                         <td>{{ $prof->tel }}</td>
                         <td>
-                            <a href="{{ route('profedit', ['prof' => $prof->id_prof]) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('profedit', ['prof' => $prof->id_prof]) }}"
+                                class="btn btn-warning">Edit</a>
                             <!-- You can replace the '#' with the delete route -->
-                            <form action="{{ route('profdestroy', ['prof' => $prof->id_prof]) }}" method="POST"  style="display: inline">
+                            <form action="{{ route('profdestroy', ['prof' => $prof->id_prof]) }}" method="POST"
+                                style="display: inline">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger">Delete</button>
                             </form>
+                            @if (!$prof->responsables)
+                                <a href="{{ route('makeResponsable', ['prof' => $prof->id_prof]) }}" class="btn btn-success">Make Responsable
+                                </a>
+                            @else
+                                <a href="{{ route('unmakeResponsable', ['prof' => $prof->id_prof]) }}"  class="btn btn-info">Unmake
+                                    Responsable</a>
+                            @endif
+
                         </td>
                     </tr>
                 @endforeach
@@ -43,6 +61,6 @@
         </table>
     </div>
 
-    </body>
+</body>
 
-        </html>
+</html>

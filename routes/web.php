@@ -8,6 +8,7 @@ use App\Http\Controllers\LocalController;
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\JourController;
+use App\Http\Controllers\ResponsableController;
 use App\Http\Controllers\SemestreController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Auth;
@@ -118,7 +119,6 @@ Route::middleware(['auth.prof'])->group(function () {
             "destroy" => "types.destroy"
         ]
     );
-
     Route::resource("semestres", SemestreController::class)->names(
         [
             'index' => 'semestres.index',
@@ -130,6 +130,8 @@ Route::middleware(['auth.prof'])->group(function () {
             "destroy" => "semestres.destroy"
         ]
     );
+    Route::get('/makeResponsable/{prof}', [ProfController::class, 'makeResponsable'])->name('makeResponsable');
+    Route::get('/unmakeResponsable/{prof}', [ProfController::class, 'unmakeResponsable'])->name('unmakeResponsable');
 });
 
 Route::middleware(['auth.prof'])->group(function () {

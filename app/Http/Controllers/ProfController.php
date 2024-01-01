@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Prof;
+use App\Models\Responsable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -79,10 +80,10 @@ class ProfController extends Controller
     public function update(Request $request, Prof $prof)
     {
         $request->validate([
-            'nom' =>'required|string|max:255',
-            'prenom' =>'required|string|max:255',
-            'email' =>'required|email|max:255',
-            'tel' =>'required|string|max:20',
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'tel' => 'required|string|max:20',
             'password' => 'required|string|min:8',
         ]);
 
@@ -137,5 +138,33 @@ class ProfController extends Controller
         $request->session()->invalidate();
 
         return redirect()->route('home'); // Change this to your desired redirect path
+    }
+    public function makeResponsable(Prof $prof)
+    {
+        try {
+            $prof->responsables()->create();
+
+            return redirect()->route('profindex')->with('success', "Le professeur: {$prof->nom} {$prof->prenom} est devenu responsable 📝");
+        } catch (\Exception $e) {
+            // Handle the exception, maybe log or display an error message
+            return redirect()->back()->with('error', 'Error making professor responsible.');
+        }
+    }
+
+    public function unmakeResponsable(Prof $prof)
+    {
+        try {
+            $responsable = $prof->responsables()->first();
+
+            if ($responsable) {
+                $responsable->delete();
+                return redirect()->route('profindex')->with('success', "Le professeur: {$prof->nom} {$prof->prenom} n'est plus responsable 📝");
+            } else {
+                return redirect()->route('profindex')->with('error', "Le professeur n'était pas responsable.");
+            }
+        } catch (\Exception $e) {
+            // Handle the exception, maybe log or display an error message
+            return redirect()->back()->with('error', 'Error removing responsibility.');
+        }
     }
 }
