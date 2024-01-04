@@ -9,25 +9,13 @@ use Illuminate\Validation\Rule;
 
 class DisponibiliteController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $jours = Jour::all();
         return view('profile_prof.available', compact("jours"));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $id_prof = session('user_id');
@@ -46,33 +34,6 @@ class DisponibiliteController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Disponibilite $disponibilite)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Disponibilite $disponibilite)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Disponibilite $disponibilite)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Disponibilite $disponibilite)
     {
         $disponibilite->delete();
