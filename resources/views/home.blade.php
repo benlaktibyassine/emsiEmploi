@@ -13,7 +13,7 @@
                         <div class="single-banner-content">
                             <span>École reconnue par l'État.</span>
                             <h1>Emsi</h1>
-                            <p>Nous donnons à nos élèves ingénieurs une formation de qualité et des expériences qui les préparent au succès dans leurs carrières. Nous les aidons aussi à découvrir un domaine qui les passionne et à oser le diriger. Nos écoles sont reconnues par l’Etat.</p>
+                            <p>Nous donnons à nos élèves ingénieurs une formation de qualité et des expériences qui les préparent au succès dans leurs carrières</p>
                             <div class="banner-btn d-flex align-items-center">
                                 <a href="contact.html" class="default-btn">Je candidate</a>
                                 
