@@ -28,20 +28,7 @@
                       </ul>
                   </div>
               </div>
-              <div class="col-lg-6 col-sm-9 col-md-9">
-                  <div class="header-right-content text-end">
-                      <ul class="list-inline">
-                          <li class="d-inline">
-                              <img src="{{ asset('assets/images/phone.svg') }}" alt="Phone">
-                              <a href="tel:(+0188)7689870859">(+0188) 768 987 0859</a>
-                          </li>
-                          <li class="d-inline">
-                              <img src="{{ asset('assets/images/email.svg') }}" alt="Email">
-                              <a href="mailto:info@inonthemes.com">Info@inonthemes.com</a>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
+              
           </div>
       </div>
   </div>
