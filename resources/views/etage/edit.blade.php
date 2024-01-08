@@ -26,5 +26,6 @@
         <button type="submit" class="btn btn-primary">Modifier l'étage</button>
     </form>
 </div>
+@include('component.jslinks')
 
 

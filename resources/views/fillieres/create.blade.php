@@ -52,8 +52,5 @@
         </div>
     </div>
 </div>
-<!-- End My Account Area -->
+@include('component.jslinks')
 
-</body>
-
-</html>

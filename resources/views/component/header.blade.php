@@ -1,5 +1,6 @@
   <!-- Start sub main Area -->
-  <div class="header-area">
+  <body>
+<div class="header-area">
       <div class="container-fluid">
           <div class="row align-items-center">
               <div class="col-lg-6 col-sm-3 col-md-3">
@@ -28,7 +29,7 @@
                       </ul>
                   </div>
               </div>
-              
+
           </div>
       </div>
   </div>

@@ -1,6 +1,6 @@
 @include("component.head")
 
-<body>
+
 @include('component.header')
 @include('component.navbar')
 
@@ -26,5 +26,5 @@
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
-</body>
-</html>
+    @include('component.jslinks')
+
