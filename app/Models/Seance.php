@@ -6,10 +6,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Matiere;
 use App\Models\Groupe;
+use App\Models\Salle;
+use App\Models\Semestre;
+use App\Models\Jour;
+use App\Models\Prof;
+use App\Models\Type;
 
 class Seance extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id_seance';
+
     protected $fillable = [
         'id_seance',
         'titre_seance',
@@ -40,7 +47,7 @@ class Seance extends Model
         return $this->belongsTo(Matiere::class);
     }
     public function sem(){
-        return $this->belongsTo(Sem::class);
+        return $this->belongsTo(Semestre::class);
     }
     public function type(){
         return $this->belongsTo(Type::class);

@@ -9,6 +9,7 @@ class Salle extends Model
 {
     use HasFactory;
     protected $primaryKey = 'code_salle';
+    protected $keyType = 'string';
     protected $fillable=[
         "code_salle",
         "id_etage",
