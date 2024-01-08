@@ -9,6 +9,7 @@ use App\Http\Controllers\SalleController;
 use App\Http\Controllers\GroupeController;
 use App\Http\Controllers\JourController;
 use App\Http\Controllers\ResponsableController;
+use App\Http\Controllers\SeanceController;
 use App\Http\Controllers\SemestreController;
 use App\Http\Controllers\TypeController;
 use Illuminate\Support\Facades\Auth;
@@ -131,7 +132,28 @@ Route::middleware(['auth.prof'])->group(function () {
         ]
     );
     Route::get('/makeResponsable/{prof}', [ProfController::class, 'makeResponsable'])->name('makeResponsable');
+    Route::resource('groupes', GroupeController::class)->names(
+        [
+            "index" => "groupe.index",
+            "create" => "groupe.create",
+            "store" => "groupe.store",
+            "show" => "groupe.show",
+            "edit" => "groupe.edit",
+            "update" => "groupe.update",
+            "destroy" => "groupe.destroy",
+        ]
+    );
     Route::get('/unmakeResponsable/{prof}', [ProfController::class, 'unmakeResponsable'])->name('unmakeResponsable');
+    Route::resource('seances', SeanceController::class)->names([
+        'index' => 'seances.index',
+        'create' => 'seances.create',
+        'store' => 'seances.store',
+        'show' => 'seances.show',
+        'edit' => 'seances.edit',
+        'update' => 'seances.update',
+        'destroy' => 'seances.destroy',
+    ]);
+    
 });
 
 Route::middleware(['auth.prof'])->group(function () {
@@ -145,17 +167,6 @@ Route::post('/login', [ProfController::class, 'login'])->name("proflogin");
 Route::post('/logout', [ProfController::class, 'logout'])->name('proflogout');
 
 
-Route::resource('groupes', GroupeController::class)->names(
-    [
-        "index" => "groupe.index",
-        "create" => "groupe.create",
-        "store" => "groupe.store",
-        "show" => "groupe.show",
-        "edit" => "groupe.edit",
-        "update" => "groupe.update",
-        "destroy" => "groupe.destroy",
-    ]
-);
 Route::get('/login', function () {
     return view('login');
 })->name('login');
