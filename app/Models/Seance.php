@@ -32,28 +32,33 @@ class Seance extends Model
     ];
     public function jour()
     {
-        return $this->belongsTo(Jour::class);
+        return $this->belongsTo(Jour::class, 'id_jour');
     }
-    public function groupe()
-    {
-        return $this->belongsTo(Groupe::class);
-    }
+   
     public function prof()
     {
-        return $this->belongsTo(Prof::class);
+        return $this->belongsTo(Prof::class, 'id_prof');
     }
     public function matiere()
     {
-        return $this->belongsTo(Matiere::class);
+        return $this->belongsTo(Matiere::class, 'id_matiere');
     }
-    public function sem(){
-        return $this->belongsTo(Semestre::class);
+    public function sem()
+    {
+        return $this->belongsTo(Semestre::class, 'id_sem');
     }
-    public function type(){
-        return $this->belongsTo(Type::class);
-    }
-    public function salle(){
-        return $this->belongsTo(Salle::class);
+    public function groupe()
+    {
+        return $this->belongsTo(Groupe::class, 'id_groupe', 'id');
     }
 
+    public function type()
+    {
+        return $this->belongsTo(Type::class, 'id_type', 'id');
+    }
+
+    public function salle()
+    {
+        return $this->belongsTo(Salle::class, 'code_salle');
+    }
 }

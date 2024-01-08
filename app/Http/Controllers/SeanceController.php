@@ -6,6 +6,7 @@ use App\Models\Groupe;
 use App\Models\Jour;
 use App\Models\Matiere;
 use App\Models\Prof;
+use App\Models\Salle;
 use App\Models\Seance;
 use App\Models\Semestre;
 use App\Models\Type;
@@ -18,7 +19,7 @@ class SeanceController extends Controller
      */
     public function index()
     {
-        $seances = Seance::with('jour', 'groupe', 'prof', 'matiere', 'sem', 'type')->get();
+        $seances = Seance::with('jour', 'groupe', 'prof', 'matiere', 'sem', 'type', 'salle')->get();
 
         return view('seances.index', compact('seances'));
     }
@@ -38,8 +39,9 @@ class SeanceController extends Controller
         $matieres = Matiere::all();
         $sems = Semestre::all();
         $types = Type::all();
+        $salles =Salle::all();
 
-        return view('seances.create', compact('jours', 'groupes', 'profs', 'matieres', 'sems', 'types'));
+        return view('seances.create', compact('jours', 'groupes', 'profs', 'matieres', 'sems', 'types','salles'));
     }
 
 
@@ -52,11 +54,13 @@ class SeanceController extends Controller
             'titre_seance' => 'required|max:255',
             'id_jour' => 'required|exists:jours,id', // Adjust the table name and field name accordingly
             'id_groupe' => 'required|exists:groupes,id',
-            'id_prof' => 'required|exists:profs,id',
-            'id_matiere' => 'required|exists:matieres,id',
-            'id_sem' => 'required|exists:semestres,id',
-            'code_salle' => 'required|max:255',
+            'id_prof' => 'required|exists:profs,id_prof',
+            'id_matiere' => 'required|exists:matieres,id_matiere',
+            'id_sem' => 'required|exists:semestres,id_sem',
+            'code_salle' => 'required|exists:salles,code_salle',
             'id_type' => 'required|exists:types,id',
+            'debut'=>'required',
+            'fin'=>'required',
             // Add validation rules for other fields
         ]);
 
