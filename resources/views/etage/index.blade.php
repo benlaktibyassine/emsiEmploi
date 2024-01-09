@@ -1,6 +1,6 @@
 @include('component.head')
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
+
 
 <div class="container">
     <h2>Liste des étages</h2>

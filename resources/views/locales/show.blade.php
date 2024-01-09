@@ -1,8 +1,8 @@
 @include('component.head')
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
 
-@section('content')
+
+
     <div class="container">
         <h2>Locale Details</h2>
 
@@ -20,4 +20,5 @@
             </form>
         </div>
     </div>
-@endsection
+
+    @include('component.jslinks')

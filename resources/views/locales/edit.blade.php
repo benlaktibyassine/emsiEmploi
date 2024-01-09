@@ -1,9 +1,5 @@
 @include('component.head')
-@include('component.header')
-
-<body>
-
-    @include('component.navbar')
+@include("component.slidebar")
 
 
     <div class="container">
@@ -21,4 +17,4 @@
             <button type="submit" class="btn btn-primary">Update Locale</button>
         </form>
     </div>
-</body>
+    @include('component.jslinks')

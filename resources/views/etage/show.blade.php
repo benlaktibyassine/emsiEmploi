@@ -1,6 +1,6 @@
 @include('component.head')
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
+
     <div class="container">
         <h2>Détails de l'étage</h2>
         <p><strong>ID de l'étage:</strong> {{ $etage->id_etage }}</p>

@@ -1,8 +1,6 @@
 @include("component.head")
 
-
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
 
     <div class="container mt-5">
         <h1>Edit filliere</h1>

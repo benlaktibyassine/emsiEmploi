@@ -1,11 +1,11 @@
 @include('component.head')
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
+
 <div class="container">
     <h2>Liste des Types</h2>
     <a href="{{ route('types.create') }}" class="btn btn-primary">Ajouter un type</a>
 
-    @if(session('success'))
+    @if (session('success'))
         <div class="alert alert-success mt-3">
             {{ session('success') }}
         </div>
@@ -30,7 +30,8 @@
                         <form action="{{ route('types.destroy', $type->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce type ?')">Supprimer</button>
+                            <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce type ?')">Supprimer</button>
                         </form>
                     </td>
                 </tr>
@@ -38,3 +39,4 @@
         </tbody>
     </table>
 </div>
+@include('component.jslinks')

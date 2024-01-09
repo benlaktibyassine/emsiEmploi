@@ -1,7 +1,7 @@
 @include("component.head")
-<body>
-@include("component.header")
-@include('component.navbar')
+@include("component.slidebar")
+
 
     <li>{{ $prof->nom }} {{ $prof->prenom }}</li>
-</body>
+@include('component.jslinks')
+

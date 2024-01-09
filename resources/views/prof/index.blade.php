@@ -1,9 +1,6 @@
 @include('component.head')
 
-<body>
-    @include('component.header')
-    @include('component.navbar')
-
+@include("component.slidebar")
     <div class="container mt-5">
         @if (session('success'))
             <div class="alert alert-success">
@@ -61,6 +58,5 @@
         </table>
     </div>
 
-</body>
+    @include('component.jslinks')
 
-</html>

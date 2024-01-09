@@ -1,6 +1,6 @@
 @include('component.head')
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
+
 <div class="container">
     <h2>Locales</h2>
     <a href="{{ route('locale.create') }}" class="btn btn-primary">Create New Locale</a>
@@ -34,3 +34,5 @@
         </tbody>
     </table>
 </div>
+@include('component.jslinks')
+

@@ -1,6 +1,6 @@
 @include('component.head')
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
+
 <div class="container">
     <h2>Modifier l'étage</h2>
     <form action="{{ route('etage.update', $etage->id_etage) }}" method="POST">

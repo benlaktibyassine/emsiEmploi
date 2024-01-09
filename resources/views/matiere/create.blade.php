@@ -1,6 +1,6 @@
 @include('component.head')
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
+
 <div class="page-banner-area portfolio-page-area mt-1">
     <div class="container">
         <div class="single-page-banner-content">
@@ -14,9 +14,6 @@
         </div>
     </div>
 </div>
-<!-- End Page Banner Area -->
-
-<!-- Start My Account Area -->
 <div class="my-account-area pt-100 pb-100">
     <div class="container">
         <div class="my-account-form login-form">
@@ -45,8 +42,5 @@
         </div>
     </div>
 </div>
-<!-- End My Account Area -->
+@include('component.jslinks')
 
-</body>
-
-</html>

@@ -1,7 +1,7 @@
 @include("component.head")
 
-<body>
-    @include("component.header")
+@include("component.slidebar")
+
 
     <div class="container">
         <h1>Create Seance</h1>
@@ -106,4 +106,5 @@
             <button type="submit" class="btn btn-primary">Create Seance</button>
         </form>
     </div>
-</body>
+    @include('component.jslinks')
+

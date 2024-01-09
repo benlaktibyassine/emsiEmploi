@@ -1,5 +1,5 @@
 @include('component.head')
-@include('component.header')
+@include("component.slidebar")
 
 <div class="container">
     <h2>Ajouter un étage</h2>

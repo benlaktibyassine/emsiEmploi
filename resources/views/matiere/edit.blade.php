@@ -1,8 +1,6 @@
 @include("component.head")
 
-<body>
-@include('component.header')
-@include('component.navbar')
+@include("component.slidebar")
 
     <div class="container mt-5">
         <h1>Edit Matiere</h1>
@@ -22,5 +20,4 @@
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>
-</body>
-</html>
+    @include('component.jslinks')

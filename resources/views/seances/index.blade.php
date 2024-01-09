@@ -1,6 +1,6 @@
 @include("component.head")
-<body>
-@include("component.header")
+@include("component.slidebar")
+
     <div class="container">
         <h1 class="mt-5">Seances</h1>
 
@@ -28,5 +28,5 @@
         </div>
     </div>
 
+    @include('component.jslinks')
 
-    </body>
