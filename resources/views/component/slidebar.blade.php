@@ -1,11 +1,7 @@
 <body id="body-pd" class="body-dash">
     <header class="header" id="header">
         <div class="header_toggle"> <i class='bx bx-menu' id="header-toggle"></i> </div>
-
         <div class="d-flex gap-2 align-items-center justify-content-center">
-            <div class="notification me-4">
-                <!-- <i class="fas fa-bell h5"></i> -->
-            </div>
             <span>
                 {{ session('nom') }} {{ session('prenom') }}
             </span>
@@ -35,6 +31,4 @@
                 </div>
             </div>
         </nav>
-        
     </div>
-
